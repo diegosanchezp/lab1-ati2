@@ -1,67 +1,69 @@
 # Lab 1 ATI-2
 
-Lab 1 de ATI-2
+## Setup ambiente de desarrollo
+Estas son las dependencias que tienen que tener instaladas en su sistema operativo para levantar el ambiente de desarrollo
+1. docker
+2. docker-compose
 
-[![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
-[![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+En la carpeta del repositorio, correr los siguientes comandos
 
-License: GPLv3
+Descargar las imágenes de docker
 
-## Settings
+```bash
+docker-compose -f local.yml pull
+```
 
-Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
+Activar servicio de base de datos
+```bash
+docker-compose -f local.yml up -d postgres
+```
 
-## Basic Commands
+Crear entorno virtual de python y descargar dependencias, al final te pedirá credenciales, estas son para el usuario administrador
 
-### Setting Up Your Users
+Pon las siguiente
+Username: admin
+Email: dev@dev
+Password: dev123456
 
--   To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+```bash
+docker-compose -f local.yml run -w /app --entrypoint bash --rm django setup_dev.sh
+```
 
--   To create a **superuser account**, use this command:
+Iniciar servicios de docker
 
-        $ python manage.py createsuperuser
+```bash
+docker-compose -f local.yml up -d
+```
+Visitar 127.0.0.1:8000
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+El ultimo comando es el comando que tienes que ejecutar para levantar el ambiente de desarrollo.
 
-### Type checks
+## Comandos basicos para el desarrollo
 
-Running type checks with mypy:
+Ver los logs de django
+```bash
+docker-compose -f local.yml logs -f django
+```
 
-    $ mypy lab_ati
+Iniciar una terminal interactiva en el contenedor de docker
+```bash
+docker-compose -f local.yml run -w /app --entrypoint bash
+```
+Y después activar el entorno virtual de python
 
-### Test coverage
+```bash
+source .venv/bin/activate
+```
 
-To run the tests, check your test coverage, and generate an HTML coverage report:
+Lo anterior sirve para correr cualquier comando que utilice las dependencias del entorno virtual como por ejemplo
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+```bash
+python manage.py makemigrations
+```
+### Creación de usuarios
 
-#### Running tests with pytest
+Cuando creas un usuario en http://127.0.0.1:8000/accounts/signup/, mandara un email de confirmación de cuenta, el email lo encontraras en los logs de django
 
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
-
-### Email Server
-
-In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server [MailHog](https://github.com/mailhog/MailHog) with a web interface is available as docker container.
-
-Container mailhog will start automatically when you will run all docker containers.
-Please check [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html) for more details how to start all containers.
-
-With MailHog running, to view messages that are sent by your application, open your browser and go to `http://127.0.0.1:8025`
-
-## Deployment
-
-The following details how to deploy this application.
-
-### Heroku
-
-See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html).
-
-### Docker
-
-See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
+```bash
+docker-compose -f local.yml logs -f django
+```
