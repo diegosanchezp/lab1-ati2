@@ -21,9 +21,10 @@ docker-compose -f local.yml up -d postgres
 Crear entorno virtual de python y descargar dependencias, al final te pedirá credenciales, estas son para el usuario administrador
 
 Pon las siguiente
-Username: admin
-Email: dev@dev
-Password: dev123456
+
+- Username: admin
+- Email: dev@dev
+- Password: dev123456
 
 ```bash
 docker-compose -f local.yml run -w /app --entrypoint bash --rm django setup_dev.sh
@@ -34,7 +35,7 @@ Iniciar servicios de docker
 ```bash
 docker-compose -f local.yml up -d
 ```
-Visitar 127.0.0.1:8000
+Visitar `127.0.0.1:8000`
 
 El ultimo comando es el comando que tienes que ejecutar para levantar el ambiente de desarrollo.
 
