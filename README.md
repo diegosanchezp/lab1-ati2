@@ -68,3 +68,6 @@ Cuando creas un usuario en http://127.0.0.1:8000/accounts/signup/, mandara un em
 ```bash
 docker-compose -f local.yml logs -f django
 ```
+## Documentacion adicional
+Este repositorio esta basado en [django-cookie-cutter](https://cookiecutter-django.readthedocs.io/en/latest/)
+
