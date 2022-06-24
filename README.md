@@ -48,10 +48,10 @@ docker-compose -f local.yml logs -f django
 
 Iniciar una terminal interactiva en el contenedor de docker
 ```bash
-docker-compose -f local.yml run -w /app --entrypoint bash
+docker-compose -f local.yml run -w /app --entrypoint bash django
 ```
-Y después activar el entorno virtual de python
 
+Y después activar el entorno virtual de python
 ```bash
 source .venv/bin/activate
 ```
