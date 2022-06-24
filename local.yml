@@ -15,6 +15,7 @@ services:
       - type: bind
         source: .
         target: /app
+    user: "${UID}:${GID}"
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres

@@ -13,6 +13,13 @@ Descargar las imágenes de docker
 docker-compose -f local.yml pull
 ```
 
+Si estas utilizando linux poner esto en tu `.bashrc` o `.zhsrc`, se necesita para los permisos de archivos
+
+```bash
+export UID=$(id -u)
+export GID=$(id -g)
+```
+
 Activar servicio de base de datos
 ```bash
 docker-compose -f local.yml up -d postgres
