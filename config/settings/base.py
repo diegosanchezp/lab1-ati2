@@ -80,6 +80,9 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "lab_ati.users",
     # Your stuff: custom apps go here
+    "lab_ati.empresa.apps.EmpresaConfig",
+    "lab_ati.proveedor.apps.ProveedorConfig",
+    "lab_ati.cliente.apps.ClienteConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

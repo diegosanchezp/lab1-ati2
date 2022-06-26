@@ -50,12 +50,12 @@ El ultimo comando es el comando que tienes que ejecutar para levantar el ambient
 
 Ver los logs de django
 ```bash
-docker-compose -f local.yml logs -f django
+docker-compose -f local.yml logs --no-log-prefix -f django
 ```
 
 Iniciar una terminal interactiva en el contenedor de docker
 ```bash
-docker-compose -f local.yml run -w /app --entrypoint bash django
+docker-compose -f local.yml run --rm -w /app --entrypoint bash django
 ```
 
 Y después activar el entorno virtual de python

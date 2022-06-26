@@ -1,0 +1,21 @@
+[
+{
+    "model": "empresa.empresa",
+    "pk": 1,
+    "fields": {
+        "ciudad": "Caracas",
+        "pais": "Venezuela",
+        "nombre": "Digitel",
+        "id_tributaria": "j-12345678",
+        "email": "atencion.digitel@gmail.com",
+        "direccion": "Av Francisco de Miranda\r\nTorre Digitel. La Castellana\r\nLocales 1 al 14, PB",
+        "web_site": "http://www.digitel.com",
+        "servicio_ofrecido": "Curso Windows-Office",
+        "servicio_proporciona": "Teléfonos para la empresa",
+        "whatsapp": "+58-412-333-3333",
+        "telefono": "58-212-123-45-67",
+        "curso_interes": "PHP",
+        "frecuencia": "1 vez a la semana"
+    }
+}
+]
