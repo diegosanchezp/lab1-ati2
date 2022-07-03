@@ -13,7 +13,7 @@ Descargar las imágenes de docker
 docker-compose -f local.yml pull
 ```
 
-Si estas utilizando linux poner esto en tu `.bashrc` o `.zhsrc`, se necesita para los permisos de archivos
+Si estas utilizando Linux poner esto en tu `.bashrc` o `.zhsrc`, se necesita para los permisos de archivos
 
 ```bash
 export UID=$(id -u)
@@ -55,14 +55,8 @@ docker-compose -f local.yml logs --no-log-prefix -f django
 
 Iniciar una terminal interactiva en el contenedor de docker
 ```bash
-docker-compose -f local.yml run --rm -w /app --entrypoint bash django
+docker-compose run --rm --no-deps -w /app --entrypoint "bash -c 'source .venv/bin/activate && bash'" django
 ```
-
-Y después activar el entorno virtual de python
-```bash
-source .venv/bin/activate
-```
-
 Lo anterior sirve para correr cualquier comando que utilice las dependencias del entorno virtual como por ejemplo
 
 ```bash
@@ -75,6 +69,35 @@ Cuando creas un usuario en http://127.0.0.1:8000/accounts/signup/, mandara un em
 ```bash
 docker-compose -f local.yml logs -f django
 ```
+### Comandos handy y aliases
+Estos comandos ubicados en `dev.sh` son de bastante utilidad, solo sirve si utilizas Linux o el subsistema de Linux de Windows
+
+Para activarlos
+
+```bash
+source dev.sh
+```
+
+Por ejemplo, para activar el server de django
+
+```bash
+runserver
+```
+
+Para hacer cosas que necesiten del entorno virtual en una terminal interactiva
+
+```bash
+dockerpy bash
+```
+
+## Base de datos
+
+### Borrar base de datos
+Si necesitas borrar la base de datos o hacerle un reset, ejectuar los comandos en `commands/resetdb.sh`
+
+```bash
+bash commands/resetdb.sh
+```
+
 ## Documentacion adicional
 Este repositorio esta basado en [django-cookie-cutter](https://cookiecutter-django.readthedocs.io/en/latest/)
-
