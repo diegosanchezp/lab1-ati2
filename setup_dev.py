@@ -127,6 +127,7 @@ if reset_db:
             "loaddata",
             f"{FIXTURES}/empresa.json",
             f"{FIXTURES}/clientes.json",
+            f"{FIXTURES}/proveedores.json",
         ]
     )
 
