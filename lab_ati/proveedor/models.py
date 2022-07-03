@@ -8,16 +8,20 @@ from django.contrib.contenttypes.fields import GenericRelation
 class Proveedor(EmpresaABC):
     representante=models.TextField(_("Representante"))
     cargo=models.TextField(_("Cargo"))
-    email_representante=models.EmailField()
+    email_representante=models.EmailField(_("Correo del representante de  la empresa"))
+    email_personal_representante=models.EmailField(_("Correo personal del representante"))
     tlf=models.TextField(_("Teléfono del proveedor"))
     tlf_representate=models.TextField(_("Teléfono celular del representante"))
     tlf_local=models.TextField(_("Teléfono local"))
-    redes_representante=GenericRelation("empresa.SocialMedia")
+    redes_representante=GenericRelation(
+        to="empresa.SocialMedia",
+        verbose_name=_("Redes sociales del representante"),
+    )
     empresa=models.ForeignKey(
         to="empresa.Empresa",
         on_delete=models.CASCADE,
         related_name="proveedores",
         null=True,
         blank=True,
-        verbose_name=_("Proveedores"),
+        verbose_name=_("Empresa"),
     )
