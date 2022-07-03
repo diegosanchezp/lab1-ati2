@@ -1,7 +1,7 @@
 [
 {
     "model": "empresa.empresa",
-    "pk": 1,
+    "pk": "85510d49-bd65-4f8d-b837-87772fdce574",
     "fields": {
         "ciudad": "Caracas",
         "pais": "Venezuela",
@@ -16,6 +16,19 @@
         "telefono": "58-212-123-45-67",
         "curso_interes": "PHP",
         "frecuencia": "1 vez a la semana"
+    }
+},
+{
+    "model": "empresa.socialmedia",
+    "pk": "481f0271-d8d5-4b77-a915-a7af13c85b8b",
+    "fields": {
+        "nombre": "Instagram",
+        "valor": "@digitel",
+        "content_type": [
+            "empresa",
+            "empresa"
+        ],
+        "object_id": "85510d49-bd65-4f8d-b837-87772fdce574"
     }
 }
 ]
