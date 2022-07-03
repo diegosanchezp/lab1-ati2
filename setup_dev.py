@@ -126,6 +126,7 @@ if reset_db:
             MANAGE,
             "loaddata",
             f"{FIXTURES}/empresa.json",
+            f"{FIXTURES}/clientes.json",
         ]
     )
 

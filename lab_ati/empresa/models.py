@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.translation import gettext_lazy as _
@@ -18,6 +19,8 @@ class DirABC(models.Model):
         abstract = True
 
 class EmpresaABC(DirABC):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
     nombre = models.TextField(_("Nombre"))
     id_tributaria = models.TextField(_("Número de identificación tributaria"))
     email = models.EmailField(_("Email"))
@@ -42,10 +45,11 @@ class Empresa(EmpresaABC):
 
 # Generic Model
 class SocialMedia(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nombre = models.TextField()
     valor = models.TextField()
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
+    object_id = models.CharField(max_length=255)
     content_object = GenericForeignKey('content_type', 'object_id')
     class Meta:
         indexes = [
@@ -70,6 +74,8 @@ class Empleado(DirABC):
         on_delete=models.CASCADE,
         related_name="empleados",
         verbose_name=_("Empresa"),
+        null=True,
+        blank=False,
     )
     modalidad_contratacion=models.TextField(
         verbose_name=_("Modalidad de contratación"),

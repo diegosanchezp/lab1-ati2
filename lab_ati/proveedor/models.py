@@ -17,5 +17,7 @@ class Proveedor(EmpresaABC):
         to="empresa.Empresa",
         on_delete=models.CASCADE,
         related_name="proveedores",
+        null=True,
+        blank=True,
         verbose_name=_("Proveedores"),
     )

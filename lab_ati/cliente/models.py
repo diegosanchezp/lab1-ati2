@@ -21,7 +21,9 @@ class Cliente(DirABC):
         to="empresa.Empresa",
         on_delete=models.CASCADE,
         related_name="clientes",
-        verbose_name=_("Clientes"),
+        verbose_name=_("Empresa"),
+        null=True,
+        blank=True,
     )
     personal_email=models.TextField(_("Email personal"))
     tlf_celular=models.TextField(_("Teléfono celular"))
