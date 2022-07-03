@@ -119,18 +119,13 @@ sp.run(["python", MANAGE, "migrate"])
 
 # Load fixtures
 if reset_db:
-    FIXTURES = "django/fixtures"
+    FIXTURES = "fixtures"
     sp.run(
         [
             "python",
             MANAGE,
             "loaddata",
-            f"{FIXTURES}/customers.json",
-            f"{FIXTURES}/products-standalone.json",
-            f"{FIXTURES}/address-state.json",
-            f"{FIXTURES}/address.json",
-            f"{FIXTURES}/shipments.json",
-            f"{FIXTURES}/invoices.json",
+            f"{FIXTURES}/empresa.json",
         ]
     )
 
