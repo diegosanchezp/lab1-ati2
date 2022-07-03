@@ -6,8 +6,8 @@ from django.contrib.contenttypes.fields import GenericRelation
 # Create your models here.
 
 class Proveedor(EmpresaABC):
-    representante=models.TextField()
-    cargo=models.TextField(_(""))
+    representante=models.TextField(_("Representante"))
+    cargo=models.TextField(_("Cargo"))
     email_representante=models.EmailField()
     tlf=models.TextField(_("Teléfono del proveedor"))
     tlf_representate=models.TextField(_("Teléfono celular del representante"))

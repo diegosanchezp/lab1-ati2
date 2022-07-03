@@ -69,7 +69,7 @@ class Empleado(DirABC):
         to="empresa.Empresa",
         on_delete=models.CASCADE,
         related_name="empleados",
-        verbose_name=_("Empleados"),
+        verbose_name=_("Empresa"),
     )
     modalidad_contratacion=models.TextField(
         verbose_name=_("Modalidad de contratación"),
