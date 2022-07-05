@@ -1,0 +1,15 @@
+.custom-header{
+    background-color: #F4F1F1;
+}
+.custom-header__menu{
+    list-style: none;
+    max-width: 400px;
+}
+.custom-header__menu-item{
+    cursor: pointer;
+}
+.custom-header__menu-item:hover{
+    background-color: #1667D7;
+    color: white;
+    transition: all 1s;
+}

@@ -26,6 +26,7 @@
       <!-- Bootstrap JS -->
       <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <!-- Your stuff: Third-party javascript libraries go here -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
       <!-- place project specific Javascript in this file -->
       <script defer src="{% static 'js/project.js' %}"></script>
@@ -35,7 +36,7 @@
   </head>
 
   <body>
-
+    <!--
     <div class="mb-1">
       <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
@@ -92,9 +93,10 @@
       </nav>
 
     </div>
+  -->
 
-    <div class="container">
-
+    <div class="w-100">
+      <!--
       {% if messages %}
         {% for message in messages %}
           <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
@@ -103,11 +105,13 @@
           </div>
         {% endfor %}
       {% endif %}
-
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-    </div> <!-- /container -->
+        -->
+    
+    {% include "./common/header.html" %}
+    <main class="w-100 d-flex flex-column justify-content-center align-items-center px-4 py-2">
+      {% block content %}{% endblock %}
+    </main>
+    {% include "./common/footer.html" %}
 
     {% block modal %}{% endblock modal %}
 
