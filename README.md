@@ -98,6 +98,29 @@ Si necesitas borrar la base de datos o hacerle un reset, ejectuar los comandos e
 ```bash
 bash commands/resetdb.sh
 ```
+## Traducciones
+
+Las traducciones se guardan en el directorio `locale/es/LC_MESSAGES/django.po`
+
+Para que puedas ver las traducciones, hay que compilar el archivo `.po`
+
+En una terminal interactiva en el contenedor de docker ejecutar
+
+```bash
+django-admin compilemessages
+```
+
+Para obtener los strings nuevos que marcaste como traducibles
+
+```bash
+django-admin makemessages -l es
+```
+
+El último Generara el message file o archivo `.po`
+
+Para mayor documentación sobre las traducciones de django, visitar
+
+https://docs.djangoproject.com/en/4.0/topics/i18n/translation/
 
 ## Documentacion adicional
 Este repositorio esta basado en [django-cookie-cutter](https://cookiecutter-django.readthedocs.io/en/latest/)
