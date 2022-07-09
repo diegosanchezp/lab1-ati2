@@ -1,0 +1,456 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-09 10:12-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lab_ati/cliente/models.py:8
+msgid "Labora empresa"
+msgstr ""
+
+#: lab_ati/cliente/models.py:9
+msgid "Estudiante"
+msgstr ""
+
+#: lab_ati/cliente/models.py:10
+msgid "Otro"
+msgstr ""
+
+#: lab_ati/cliente/models.py:14
+msgid "Nombre y Apellido"
+msgstr ""
+
+#: lab_ati/cliente/models.py:18
+msgid "Compañia/Organismo"
+msgstr ""
+
+#: lab_ati/cliente/models.py:19 lab_ati/empresa/models.py:70
+#: lab_ati/proveedor/models.py:10
+msgid "Cargo"
+msgstr ""
+
+#: lab_ati/cliente/models.py:24 lab_ati/empresa/models.py:76
+#: lab_ati/proveedor/models.py:26
+msgid "Empresa"
+msgstr ""
+
+#: lab_ati/cliente/models.py:28
+msgid "Email personal"
+msgstr ""
+
+#: lab_ati/cliente/models.py:29 lab_ati/empresa/models.py:86
+msgid "Teléfono celular"
+msgstr ""
+
+#: lab_ati/cliente/models.py:30 lab_ati/empresa/models.py:40
+msgid "Whatsapp"
+msgstr ""
+
+#: lab_ati/cliente/models.py:31
+msgid "Servicio ofrecido"
+msgstr ""
+
+#: lab_ati/cliente/models.py:32 lab_ati/empresa/models.py:42
+msgid "Curso de interés"
+msgstr ""
+
+#: lab_ati/cliente/models.py:33 lab_ati/empresa/models.py:43
+msgid "Frecuencia con la que desea mantenerse informado"
+msgstr ""
+
+#: lab_ati/empresa/models.py:11
+msgid "Ciudad"
+msgstr ""
+
+#: lab_ati/empresa/models.py:12
+msgid "Pais"
+msgstr ""
+
+#: lab_ati/empresa/models.py:24 lab_ati/empresa/models.py:67
+msgid "Nombre"
+msgstr ""
+
+#: lab_ati/empresa/models.py:25
+msgid "Número de identificación tributaria"
+msgstr ""
+
+#: lab_ati/empresa/models.py:26
+msgid "Email"
+msgstr ""
+
+#: lab_ati/empresa/models.py:27
+msgid "Dirección"
+msgstr ""
+
+#: lab_ati/empresa/models.py:28
+msgid "Sitio web"
+msgstr ""
+
+#: lab_ati/empresa/models.py:29 lab_ati/empresa/models.py:39
+msgid "Servicio que proporciona"
+msgstr ""
+
+#: lab_ati/empresa/models.py:38
+msgid " Servicio que le ofrecimos"
+msgstr ""
+
+#: lab_ati/empresa/models.py:41
+msgid "Teléfono"
+msgstr ""
+
+#: lab_ati/empresa/models.py:64
+msgid "Fijo"
+msgstr ""
+
+#: lab_ati/empresa/models.py:65
+msgid "Honorario profesionales"
+msgstr ""
+
+#: lab_ati/empresa/models.py:68
+msgid "Apellido"
+msgstr ""
+
+#: lab_ati/empresa/models.py:69
+msgid "Cédula o nro pasaporte"
+msgstr ""
+
+#: lab_ati/empresa/models.py:81
+msgid "Modalidad de contratación"
+msgstr ""
+
+#: lab_ati/empresa/models.py:84
+msgid "Correo electrónico de la empresa"
+msgstr ""
+
+#: lab_ati/empresa/models.py:85
+msgid "Correo personal"
+msgstr ""
+
+#: lab_ati/empresa/models.py:87 lab_ati/proveedor/models.py:15
+msgid "Teléfono local"
+msgstr ""
+
+#: lab_ati/proveedor/models.py:9
+msgid "Representante"
+msgstr ""
+
+#: lab_ati/proveedor/models.py:11
+msgid "Correo del representante de  la empresa"
+msgstr ""
+
+#: lab_ati/proveedor/models.py:12
+msgid "Correo personal del representante"
+msgstr ""
+
+#: lab_ati/proveedor/models.py:13
+msgid "Teléfono del proveedor"
+msgstr ""
+
+#: lab_ati/proveedor/models.py:14
+msgid "Teléfono celular del representante"
+msgstr ""
+
+#: lab_ati/proveedor/models.py:18
+msgid "Redes sociales del representante"
+msgstr ""
+
+#: lab_ati/templates/account/account_inactive.html:5
+#: lab_ati/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr ""
+
+#: lab_ati/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr ""
+
+#: lab_ati/templates/account/email.html:7
+msgid "Account"
+msgstr ""
+
+#: lab_ati/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr ""
+
+#: lab_ati/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+
+#: lab_ati/templates/account/email.html:27
+msgid "Verified"
+msgstr "Verificado"
+
+#: lab_ati/templates/account/email.html:29
+msgid "Unverified"
+msgstr "No verificado"
+
+#: lab_ati/templates/account/email.html:31
+msgid "Primary"
+msgstr ""
+
+#: lab_ati/templates/account/email.html:37
+msgid "Make Primary"
+msgstr ""
+
+#: lab_ati/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr "Enviar verificación de nuevo"
+
+#: lab_ati/templates/account/email.html:39
+msgid "Remove"
+msgstr "Remover"
+
+#: lab_ati/templates/account/email.html:46
+msgid "Warning:"
+msgstr "Advertencia: "
+
+#: lab_ati/templates/account/email.html:46
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: lab_ati/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr "Añade una dirección e-mail"
+
+#: lab_ati/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr "Añade e-mail"
+
+#: lab_ati/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "¿Realmente quieres borrar el e-mail seleccionado?"
+
+#: lab_ati/templates/account/email_confirm.html:6
+#: lab_ati/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Confirmar dirección e-mail"
+
+#: lab_ati/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: lab_ati/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: lab_ati/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: lab_ati/templates/account/login.html:7
+#: lab_ati/templates/account/login.html:11
+#: lab_ati/templates/account/login.html:56 lab_ati/templates/base.html:73
+msgid "Sign In"
+msgstr "Ingresar"
+
+#: lab_ati/templates/account/login.html:17
+msgid "Please sign in with one of your existing third party accounts:"
+msgstr ""
+
+#: lab_ati/templates/account/login.html:19
+#, python-format
+msgid ""
+"Or, <a href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account and "
+"sign in below:"
+msgstr ""
+
+#: lab_ati/templates/account/login.html:32
+msgid "or"
+msgstr "o"
+
+#: lab_ati/templates/account/login.html:41
+#, python-format
+msgid ""
+"If you have not created an account yet, then please <a "
+"href=\"%(signup_url)s\">sign up</a> first."
+msgstr "Si no ha creado una cuenta todavía, créela <a href=\"%(signup_url)s\">registrándose</a> primero."
+
+#: lab_ati/templates/account/login.html:55
+msgid "Forgot Password?"
+msgstr "¿Olvidaste la contraseña?"
+
+#: lab_ati/templates/account/logout.html:5
+#: lab_ati/templates/account/logout.html:8
+#: lab_ati/templates/account/logout.html:17 lab_ati/templates/base.html:62
+msgid "Sign Out"
+msgstr "Cerrar sesión"
+
+#: lab_ati/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr "¿Estas seguro de que quieres cerrar sesión?"
+
+#: lab_ati/templates/account/password_change.html:6
+#: lab_ati/templates/account/password_change.html:9
+#: lab_ati/templates/account/password_change.html:14
+#: lab_ati/templates/account/password_reset_from_key.html:5
+#: lab_ati/templates/account/password_reset_from_key.html:8
+#: lab_ati/templates/account/password_reset_from_key_done.html:4
+#: lab_ati/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+#: lab_ati/templates/account/password_reset.html:7
+#: lab_ati/templates/account/password_reset.html:11
+#: lab_ati/templates/account/password_reset_done.html:6
+#: lab_ati/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr "Resetear Contraseña"
+
+#: lab_ati/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+
+#: lab_ati/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr ""
+
+#: lab_ati/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: lab_ati/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr "Te hemos enviado un e-mail. Por favor contactamos si no lo haz recibido en unos minutos"
+
+#: lab_ati/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr ""
+
+#: lab_ati/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: lab_ati/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr "cambiar contraseña"
+
+#: lab_ati/templates/account/password_reset_from_key.html:21
+#: lab_ati/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr ""
+
+#: lab_ati/templates/account/password_set.html:6
+#: lab_ati/templates/account/password_set.html:9
+#: lab_ati/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr "Setear contraseña"
+
+#: lab_ati/templates/account/signup.html:6
+msgid "Signup"
+msgstr ""
+
+#: lab_ati/templates/account/signup.html:9
+#: lab_ati/templates/account/signup.html:19 lab_ati/templates/base.html:68
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: lab_ati/templates/account/signup.html:11
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr "¿Ya tienes una cuenta? <a href=\"%(login_url)s\">Inicia sesión</a>."
+
+#: lab_ati/templates/account/signup_closed.html:5
+#: lab_ati/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "Sesión cerrada"
+
+#: lab_ati/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Lo lamentamos, la sesión actual esta cerrada"
+
+#: lab_ati/templates/account/verification_sent.html:5
+#: lab_ati/templates/account/verification_sent.html:8
+#: lab_ati/templates/account/verified_email_required.html:5
+#: lab_ati/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "Verifica tu dirección e-mail"
+
+#: lab_ati/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: lab_ati/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: lab_ati/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: lab_ati/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+
+#: lab_ati/templates/base.html:58
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: lab_ati/users/admin.py:18
+msgid "Personal info"
+msgstr "Información personal"
+
+#: lab_ati/users/admin.py:20
+msgid "Permissions"
+msgstr "Permisos"
+
+#: lab_ati/users/admin.py:31
+msgid "Important dates"
+msgstr "Fechas importantes"
+
+#: lab_ati/users/apps.py:7
+msgid "Users"
+msgstr "Usuarios"
+
+#: lab_ati/users/forms.py:25 lab_ati/users/tests/test_forms.py:39
+msgid "This username has already been taken."
+msgstr "Este nombre de usuario ya existe"
+
+#: lab_ati/users/models.py:15
+msgid "Name of User"
+msgstr "Nombre del usuario"
+
+#: lab_ati/users/views.py:25
+msgid "Information successfully updated"
+msgstr "Información actualizada exitosamente"
