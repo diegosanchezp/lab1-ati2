@@ -6,7 +6,10 @@ volumes:
 
 services:
   django:
-    image: python:3.10.5
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: lab_ati_local_django
     container_name: lab_ati_local_django
     working_dir: /app
     depends_on:
