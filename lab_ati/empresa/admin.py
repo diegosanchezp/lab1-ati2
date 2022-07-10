@@ -12,3 +12,7 @@ class EmpresaAdmin(admin.ModelAdmin):
 @admin.register(Empleado)
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display = ("nombre", "apellido", "ci")
+
+@admin.register(SocialMedia)
+class SocialMediaAdmin(admin.ModelAdmin):
+    list_display = ("nombre", "valor", "object_id")
