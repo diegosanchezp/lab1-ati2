@@ -24,6 +24,7 @@ if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
 
+from lab_ati.proveedor.views import createProveedor,listProveedor,seeProveedor,updateProveedor
 # API URLS
 urlpatterns += [
     # API base url
@@ -36,6 +37,11 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    #path('proveedor/crear', createProveedor, name='createProveedor')
+    path('proveedor/', listProveedor, name='listProveedor'),
+    path('proveedor/see', seeProveedor, name='seeProveedor'),
+    path('proveedor/crear', createProveedor, name='createProveedor'),
+    path('proveedor/modificar', updateProveedor, name='updateProveedor')
 ]
 
 if settings.DEBUG:
