@@ -12,53 +12,49 @@
                     <span>{{ form.nombre.errors }}</span>
                 </section>
                 <section class="col input-group">
-                    <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.apellidos.label_tag }}</label>
-                    {{ form.apellidos }}
-                    <span>{{ form.apellidos.errors }}</span>
+                    <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.apellido.label_tag }}</label>
+                    {{ form.apellido }}
+                    <span>{{ form.apellido.errors }}</span>
                 </section>
             </section>
 
             <section class="row">
                 <section class="col input-group">
-                    <label class="input-group-text">C.I o Número de pasaporte</label>
-                    <input class="form-control" >
+                    <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.ci.label_tag }}</label>
+                    {{form.ci}}
                 </section>
                 <section class="col input-group">
-                    <label class="input-group-text">Modalidad de contratación</label>
-                    <select class="form-select" >
-                        <option selected disabled>Selecciona...</option>
-                        <option value="1">Fijo</option>
-                        <option value="2">Honorarios profesionales</option>
-                    </select>
+                    <label class="input-group-text">{{form.modalidad_contratacion.label_tag}}</label>
+                    {{form.modalidad_contratacion}}
                 </section>
             </section>
 
             <section class="row">
                 <section class="col input-group">
-                    <label class="input-group-text">Correo electrónico de la empresa</label>
-                    <input class="form-control" >
+                    <label class="input-group-text">{{form.email_emp.label_tag}}</label>
+                    {{form.email_emp}}
                 </section>
                 <section class="col input-group">
-                    <label class="input-group-text">Correo personal</label>
-                    <input class="form-control" >
-                </section>
-            </section>
-
-            <section class="row">
-                <section class="col input-group">
-                    <label class="input-group-text">Teléfono local</label>
-                    <input class="form-control" >
-                </section>
-                <section class="col input-group">
-                    <label class="input-group-text">Teléfono celular</label>
-                    <input class="form-control" >
+                    <label class="input-group-text">{{form.email_p.label_tag}}</label>
+                    {{form.email_p}}
                 </section>
             </section>
 
             <section class="row">
                 <section class="col input-group">
-                    <label class="input-group-text">Ciudad de origen</label>
-                    <input class="form-control" >
+                    <label class="input-group-text">{{form.tlf_local.label_tag}}</label>
+                    {{form.tlf_local}}
+                </section>
+                <section class="col input-group">
+                    <label class="input-group-text">{{form.tlf_celular.label_tag}}</label>
+                    {{form.tlf_celular}}
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <label class="input-group-text">{{ form.ciudad.label_tag }}</label>
+                    {{ form.ciudad }}
                 </section>
                 <section class="col input-group">
                     <label class="input-group-text">{{ form.pais.label_tag }}</label>
