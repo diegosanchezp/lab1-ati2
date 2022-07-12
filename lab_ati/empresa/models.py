@@ -41,7 +41,14 @@ class Empresa(EmpresaABC):
     telefono=models.TextField(_("Teléfono"))
     curso_interes=models.TextField(_("Curso de interés"))
     frecuencia=models.TextField(_("Frecuencia con la que desea mantenerse informado"))
-
+    cliente_empresa = models.ForeignKey(
+        to='self',
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("Cliente tipo empresa"),
+        related_name="clientes_empresa",
+    )
 
 # Generic Model
 class SocialMedia(models.Model):

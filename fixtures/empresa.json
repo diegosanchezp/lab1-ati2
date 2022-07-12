@@ -30,5 +30,25 @@
         ],
         "object_id": "85510d49-bd65-4f8d-b837-87772fdce574"
     }
+},
+{
+    "model": "empresa.empresa",
+    "pk": "ae5b2a62-717e-40ba-8e94-0c8536b8db85",
+    "fields": {
+        "ciudad": "San Jose - California",
+        "pais": "Estados Unidos",
+        "nombre": "Walmart",
+        "id_tributaria": "TIN- 2334567890",
+        "email": "atencion@walmart.com",
+        "direccion": "4080 Stevens Creek Blvd\r\nSan Jose, CA 95129",
+        "web_site": "http://www.walmart.com",
+        "servicio_ofrecido": "Desarorollo sitio Web",
+        "servicio_proporciona": "Suministros de comida",
+        "whatsapp": "+1-317-938-5657",
+        "telefono": "1-800-925-6278",
+        "curso_interes": "Ninguno",
+        "frecuencia": "2 veces por semana",
+        "cliente_empresa": null
+    }
 }
 ]
