@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block inline_css %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/empresa/empresa_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column">
+    <div class="mt-3">
+        <button type="button" class="btn btn-primary">Registrar Empresa</button>
+    </div>
+
+    <div class="mt-3 w-100 py-4 d-flex justify-content-center align-items-center border border-secondary rounded">
+        <h3>Empresas de la corporación X </h3>
+    </div>
+
+    <div class="mt-3 p-2 w-100 border rounded">
+        <h5>Listado de empresas</h5>
+        <table class="table table-hover w-100" id="businessesTable">
+            <thead class="text-warning">
+              <tr>
+                  <th>Nombre</th>
+                  <th>RIF</th>
+                  <th>Ciudad</th>
+                  <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block inline_javascript %}
+    <script>
+        $(document).ready(() => {
+            const businessesData  = JSON.parse('{{ data | safe }}')
+            const businessesDataForTable = businessesData.map((businessData) => {
+                return { 
+                    nombre: businessData.fields.nombre,
+                    pais: businessData.fields.pais,
+                    id_tributaria: businessData.fields.id_tributaria,
+                    
+                }
+            });
+            
+            $('#businessesTable').DataTable( {
+                data: businessesDataForTable,
+                columns: [
+                    { data: 'nombre' },
+                    { data: 'pais'},
+                    { data: 'id_tributaria'},
+                    { 
+                        data: null, 
+                        defaultContent: 
+                            ''
+                    }
+                ],
+                pageLength: 20,
+                order: [[ 0, 'asc' ]],
+                responsive: true,
+                info: true,
+                pagingType: 'full'
+            });
+
+        });
+    </script>
+{% endblock %}
