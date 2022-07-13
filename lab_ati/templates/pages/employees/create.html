@@ -1,0 +1,190 @@
+{% extends "../../base.html" %}
+
+{% block content %}
+    <section class="general-container w-100">
+        <h2 class="text-center pb-4">Crea un empleado con su información</h2>
+        <form method="POST" class="container d-grid gap-3 pb-4">
+            {% csrf_token %}
+            <section class="row">
+                <section class="col input-group">
+                    <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.nombre.label_tag }}</label>
+                    {{ form.nombre }}
+                    <span>{{ form.nombre.errors }}</span>
+                </section>
+                <section class="col input-group">
+                    <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.apellido.label_tag }}</label>
+                    {{ form.apellido }}
+                    <span>{{ form.apellido.errors }}</span>
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.ci.label_tag }}</label>
+                    {{form.ci}}
+                </section>
+                <section class="col input-group">
+                    <label class="input-group-text">{{form.modalidad_contratacion.label_tag}}</label>
+                    {{form.modalidad_contratacion}}
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <label class="input-group-text">{{form.email_emp.label_tag}}</label>
+                    {{form.email_emp}}
+                </section>
+                <section class="col input-group">
+                    <label class="input-group-text">{{form.email_p.label_tag}}</label>
+                    {{form.email_p}}
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <label class="input-group-text">{{form.tlf_local.label_tag}}</label>
+                    {{form.tlf_local}}
+                </section>
+                <section class="col input-group">
+                    <label class="input-group-text">{{form.tlf_celular.label_tag}}</label>
+                    {{form.tlf_celular}}
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <label class="input-group-text">{{ form.ciudad.label_tag }}</label>
+                    {{ form.ciudad }}
+                </section>
+                <section class="col input-group">
+                    <label class="input-group-text">{{ form.pais.label_tag }}</label>
+                    {{ form.pais }}
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <ul class="list-group list-group w-100" id="socialNetworkList" >
+                        <!--<li class="list-group-item d-flex align-items-center">
+                            <input class="form-check-input mt-0" type="checkbox">
+                            <p class="mb-0 mx-2">Facebook: @example</p>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <input class="form-check-input mt-0" type="checkbox">
+                            <p class="mb-0 mx-2">Twitter: @example</p>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <input class="form-check-input mt-0" type="checkbox">
+                            <p class="mb-0 mx-2">Instagram: @example</p>
+                        </li>-->
+                    </ul>
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col input-group">
+                    <section class="d-grid">
+                        <section class="row">
+                            <section class="col input-group">
+                                <label class="input-group-text">Red social</label>
+                                <input class="form-control" id="socialNetworkName" >
+                            </section>
+                            <section class="col input-group">
+                                <label class="input-group-text">Valor</label>
+                                <input class="form-control" id="socialNetworkValue">
+                            </section>
+                            <section class="col input-group btn-group">
+                                <button type="button" class="btn btn-danger" id="socialNetworkRemoveButton">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="socialNetworkAddButton">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+
+            <section class="row">
+                <section class="col">
+                    <button class="btn btn-primary">
+                        Crear empleado
+                    </button>
+                </section>
+                
+            </section>
+        </form>
+    </section>
+{% endblock content %}
+{% block inline_javascript %}
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        let socialNetworks = []
+
+        function addSocialNetwork(){
+            const socialNetworkName = document.getElementById('socialNetworkName').value
+            const socialNetworkValue = document.getElementById('socialNetworkValue').value
+            const socialNetworkList = document.getElementById('socialNetworkList')
+            const socialNetworks = document.querySelectorAll('#socialNetworkList li')
+            
+            if(socialNetworkName != null && socialNetworkValue){
+                const socialNetworkItem = document.createElement('li')
+                socialNetworkItem.classList = ["list-group-item"]
+                socialNetworkItem.id = `socialNetwork-${socialNetworks.length + 1}`
+
+                const socialNetworkLabelContainer = document.createElement('label')
+                socialNetworkLabelContainer.classList = ["d-flex align-items-center"]
+                socialNetworkLabelContainer.for = `socialNetworkCheck-${socialNetworks.length + 1}` 
+
+                const inputCheck = document.createElement('input')
+                inputCheck.classList = ["form-check-input mt-0"]
+                inputCheck.type = "checkbox"
+                inputCheck.name = "socialNetworks[]"
+                //inputCheck.value = `${socialNetworkName},${socialNetworkValue}`
+                inputCheck.checked = false
+                inputCheck.id = `socialNetworkCheck-${socialNetworks.length + 1}` 
+
+                const socialNetWorkText = document.createElement('p')
+                socialNetWorkText.classList = ["mb-0 mx-2"]
+
+                const text = document.createTextNode(`${socialNetworkName}: ${socialNetworkValue}`);
+
+                socialNetWorkText.appendChild(text)
+
+                socialNetworkLabelContainer.appendChild(inputCheck)
+                socialNetworkLabelContainer.appendChild(socialNetWorkText)
+
+                socialNetworkItem.appendChild(socialNetworkLabelContainer)
+                
+                socialNetworkList.appendChild(socialNetworkItem)
+                
+                document.getElementById('socialNetworkName').value = ""
+                document.getElementById('socialNetworkValue').value = ""
+            }
+        } 
+
+        function removeSocialNetwork(){
+            const socialNetworks = document.querySelectorAll('#socialNetworkList li')
+
+            socialNetworks.forEach((socialNetwork) => {
+                if(Array.from(socialNetwork.childNodes[0].childNodes).find((element) => element.type === "checkbox").checked){
+                    document.getElementById('socialNetworkList').removeChild(socialNetwork)
+                }
+            })
+        }
+
+        document.getElementById('socialNetworkAddButton').addEventListener('click', () => {
+            addSocialNetwork()
+        })
+
+        document.getElementById('socialNetworkRemoveButton').addEventListener('click', () => {
+            removeSocialNetwork()
+        })
+
+        document.getElementById("pais").childNodes.forEach((country) => {
+            if(country.value === "0") country.disabled = true
+        })
+    });
+</script>
+{% endblock %}

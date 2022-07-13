@@ -1,1 +1,51 @@
 /* Project specific Javascript goes here. */
+class SocialMediaController{
+    constructor(){
+        this.socialContainer = document.getElementById("social-container");
+        this.totalFormsEl = document.getElementById("id_form-TOTAL_FORMS")
+        this.totalForms = parseInt(this.totalFormsEl.value)
+        this.templateRow = this.socialContainer.querySelector(".row"); // First Row
+        this.setupEvents(this.templateRow);
+    }
+
+    // Add delete and add event listners to a row
+    setupEvents(element){
+        // Bind methods as events, pass this class instance
+        element.addEventListener("click", this.deleteSocialMediaInputs.bind(this));
+        element.addEventListener("click", this.addSocialMediaInputs.bind(this));
+    }
+
+    addSocialMediaInputs(event){
+        // This event is activated by event bubbling
+        if(event.target.dataset.btnType !=="socialNetworkAddButton") return;
+
+
+        // Clone the form
+        let newRow = this.templateRow.cloneNode(true) 
+
+        //Regex to find all instances of the form number
+        let formRegex = RegExp(`form-(\\d){1}-`,'g') 
+
+        newRow.innerHTML = newRow.innerHTML.replace(formRegex, `form-${this.totalForms}-`) //Update the new form to have the correct form number
+
+        this.setupEvents(newRow);
+
+        //Insert the new form below the row
+        event.currentTarget.insertAdjacentElement("afterend", newRow)
+
+        // Increment formset form count
+        this.totalForms +=1;
+        this.totalFormsEl.setAttribute("value", this.totalForms)
+    }
+
+    deleteSocialMediaInputs(event){
+        // This event is activated by event bubbling
+        if(event.target.dataset.btnType !=="socialNetworkRemoveButton") return;
+
+        // Decrease
+        this.totalForms -=1;
+        this.totalFormsEl.setAttribute("value", this.totalForms)
+        event.currentTarget.remove();
+    }
+}
+
