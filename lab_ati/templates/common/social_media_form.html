@@ -1,0 +1,32 @@
+{{ socialm_formset.management_form }}
+
+<section class="d-grid" id="social-container">
+  <section class="row">
+    <section class="col input-group">
+      <section class="d-grid" id="social-container">
+
+      {% for socialm_form in socialm_formset %}
+        {{ socialm_form.id }}
+        <section class="row" id="">
+          <section class="col input-group">
+            <label for="{{ socialm_form.nombre.id_for_label }}" class="input-group-text">Red social</label>
+            {{ socialm_form.nombre }}
+          </section>
+          <section class="col input-group">
+            <label for="{{ socialm_form.valor.id_for_label }}" class="input-group-text">Valor</label>
+            {{ socialm_form.valor }}
+          </section>
+          <section class="col input-group btn-group">
+            <button type="button" class="btn btn-danger" data-btn-type="socialNetworkRemoveButton">
+              <i class="bi bi-trash"></i>
+            </button>
+            <button type="button" class="btn btn-primary" data-btn-type="socialNetworkAddButton">
+              <i class="bi bi-plus"></i>
+            </button>
+          </section>
+        </section>
+      {% endfor %}
+      </section>
+    </section>
+  </section>
+</section>
