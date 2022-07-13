@@ -48,6 +48,12 @@ También puede ser un archivo .js
 4) En la vista instancia y validar el formulario
 
 ```python
+
+# Importar
+from lab_ati.utils.social_media import add_social_media
+
+#...
+
 social_media_formset = SocialMediaFormset(data=request.POST)
 
 if social_media_formset.is_valid():
