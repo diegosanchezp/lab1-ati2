@@ -1,8 +1,13 @@
 {% extends "base.html" %} {% block content %}
-<p>type:{{type}}</p>
-<h2>Registro de Proveedor para empresa {{empresa.nombre}}</h2>
+{% if data.update %}
+  <h2>Modificar Proveedor {{data.proveedor.nombre}}</h2>
+  <h6>De {{data.proveedor.empresa.nombre}}</h6>
+{% else %}
+  <h2>Registro de Proveedor para empresa {{data.empresa.empresa.nombre}}</h2>
+{% endif %}
+
 <div class="container col-8 mx-auto" id="form-box">
-  {% include "proveedor/form.html" with proveedor=proveedor%}
+  {% include "proveedor/form.html" with data=data%}
 </div>
 
 {% endblock content %}

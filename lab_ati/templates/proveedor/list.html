@@ -3,7 +3,7 @@
   <div id="proveedor-list-header"> 
     <a role="button" class="btn btn-success btn-lg" href="/proveedor/crear?empresa={{empresa.id}}">Crear Proveedor</a>
   </div>
-  <h3>Proveedores de {{empresa.empresa}}</h3>
+  <h3>Proveedores de {{empresa.empresa.nombre}}</h3>
   <div class="container" id="proveedor-list">
     {% if tieneProveedores %}
       <ul class="list-group">

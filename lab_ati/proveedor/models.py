@@ -13,6 +13,7 @@ class Proveedor(EmpresaABC):
     tlf=models.TextField(_("Teléfono del proveedor"))
     tlf_representate=models.TextField(_("Teléfono celular del representante"))
     tlf_local=models.TextField(_("Teléfono local"))
+    pais_representante=models.TextField(_("Pais de residencia"))
     redes_representante=GenericRelation(
         to="empresa.SocialMedia",
         verbose_name=_("Redes sociales del representante"),

@@ -1,12 +1,18 @@
 <li class="list-group-item">
-  <p>{{item.representante}}</p>
+  <p>{{item.nombre}}</p>
   <div>
-    <a class="btn btn-primary" href="/proveedor/modificar?proid={{item.id}}" role="button">Modificar</a>
-    <a class="btn btn-primary" href="#" role="button">Ver</a>
-    <a class="btn btn-danger" href="#" role="button">Eliminar</a>
-    
-    
+    <a
+      class="btn btn-primary"
+      href="/proveedor/modificar?proveedor={{item.id}}"
+      role="button"
+      >Modificar</a
+    >
+    <a class="btn btn-primary" href="/proveedor/ver?proveedor={{item.id}}" role="button">Ver</a>
+    <a
+      class="btn btn-danger"
+      href="/proveedor/eliminar?proveedor={{item.id}}"
+      role="button"
+      >Eliminar</a
+    >
   </div>
-  
 </li>
-

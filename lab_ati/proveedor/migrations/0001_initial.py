@@ -31,6 +31,7 @@ class Migration(migrations.Migration):
                 ('email_representante', models.EmailField(max_length=254, verbose_name='Correo del representante de  la empresa')),
                 ('email_personal_representante', models.EmailField(max_length=254, verbose_name='Correo personal del representante')),
                 ('tlf', models.TextField(verbose_name='Teléfono del proveedor')),
+                ('pais_representante', models.TextField(verbose_name='Pais de residencia')),
                 ('tlf_representate', models.TextField(verbose_name='Teléfono celular del representante')),
                 ('tlf_local', models.TextField(verbose_name='Teléfono local')),
                 ('empresa', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='proveedores', to='empresa.empresa', verbose_name='Proveedores')),

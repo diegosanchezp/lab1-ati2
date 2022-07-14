@@ -1,5 +1,86 @@
 {% extends "base.html" %} {% block content %}
-<h2>Proveedor see</h2>
-  {{proveedores}}
+<h2>Proveedor {{proveedor.nombre}}</h2>
+<h6>De {{proveedor.empresa.nombre}}</h6>
+<br/>
+  <h5>Información del proveedor</h5>  
+  <div class="container col-8 mx-auto">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Nombre</td>
+          <td>{{proveedor.nombre}}</td>
+        </tr>
+        <tr>
+          <td>Servicio que proporciona</td>
+          <td>{{proveedor.servicio_proporciona}}</td>
+        </tr>
+        <tr>
+          <td>Telefono</td>
+          <td>{{proveedor.tlf}}</td>
+        </tr>
+        <tr>
+          <td>Pais</td>
+          <td>{{proveedor.pais}}</td>
+        </tr>
+        <tr>
+          <td>Ciudad o provincia</td>
+          <td>{{proveedor.ciudad}}</td>
+        </tr>
+        <tr>
+          <td>Direccion</td>
+          <td>{{proveedor.direccion}}</td>
+        </tr>
+        <tr>
+          <td>Correo electronico</td>
+          <td>{{proveedor.email}}</td>
+        </tr>
+        <tr>
+          <td>Página web</td>
+          <td>{{proveedor.web_site}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <br/>
+  <h5>Información del representante</h5>
+  <div class="container col-8 mx-auto">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Nombre</td>
+          <td>{{proveedor.representante}}</td>
+        </tr>
+        <tr>
+          <td>Cargo</td>
+          <td>{{proveedor.cargo}}</td>
+        </tr>
+        <tr>
+          <td>Correo electronico</td>
+          <td>{{proveedor.email_representante}}</td>
+        </tr>
+        <tr>
+          <td>Correo electronico personal</td>
+          <td>{{proveedor.email_personal_representante}}</td>
+        </tr>
+        <tr>
+          <td>Telefono</td>
+          <td>{{proveedor.tlf_representate}}</td>
+        </tr>
+        <tr>
+          <td>Telefono local</td>
+          <td>{{proveedor.tlf_local}}</td>
+        </tr>
+        <tr>
+          <td>Pais de residencia</td>
+          <td>{{proveedor.pais_representante}}</td>
+        </tr>
+        <tr>
+          <td>Página web</td>
+          <td>{{proveedor.web_site}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 {% endblock content %}

@@ -1,15 +1,20 @@
-<form enctype="multipart/form-data" action="post">
-  <div class="form-section-box">
+<form
+  enctype="multipart/form-data"
+  action="/proveedor/crear?empresa{{data.empresa.id}}"
+  method="post"
+>
+  {% csrf_token %}
+  <div class="section-box">
     <p class="fw-bold fs-5">Información del proveedor</p>
 
     <div class="mb-3">
       <label class="form-label">Nombre</label>
       <input
+        name="nombre"
         type="text"
         class="form-control"
-        id="nombre"
         placeholder="Nombre"
-        value="{{proveedor.nombre}}"
+        value="{{data.proveedor.nombre}}"
       />
     </div>
 
@@ -18,31 +23,31 @@
       <input
         type="text"
         class="form-control"
-        id="servicio"
+        name="servicio_proporciona"
         placeholder="Servicio"
-        value=""
+        value="{{data.proveedor.servicio_proporciona}}"
       />
     </div>
 
-    <div class="mb-3"></div>
-    <label class="form-label">Número de identificación tributaria</label>
-    <input
-      type="text"
-      class="form-control"
-      id="id_tributaria"
-      placeholder="Identificación tributaria"
-      value=""
-    />
+    <div class="mb-3">
+      <label class="form-label">Número de identificación tributaria</label>
+      <input
+        type="text"
+        class="form-control"
+        name="id_tributaria"
+        placeholder="Identificación tributaria"
+        value="{{data.proveedor.id_tributaria}}"
+      />
+    </div>
 
     <div class="mb-3">
-      <!--TODO tal vez un select y un input text-->
       <label class="form-label">Telefono</label>
       <input
         type="text"
         class="form-control"
-        id="tlf_proveedor"
+        name="tlf"
         placeholder="Telefono"
-        value=""
+        value="{{data.proveedor.tlf}}"
       />
     </div>
 
@@ -51,9 +56,9 @@
       <input
         type="text"
         class="form-control"
-        id="direccion"
+        name="direccion"
         placeholder="Dirección"
-        value=""
+        value="{{data.proveedor.direccion}}"
       />
     </div>
 
@@ -62,9 +67,9 @@
       <input
         type="text"
         class="form-control"
-        id="ciudad_provincia"
+        name="ciudad"
         placeholder="Ciudad o Provincia"
-        value=""
+        value="{{data.proveedor.ciudad}}"
       />
     </div>
 
@@ -73,9 +78,9 @@
       <input
         type="text"
         class="form-control"
-        id="pais"
+        name="pais"
         placeholder="Pais"
-        value=""
+        value="{{data.proveedor.pais}}"
       />
     </div>
 
@@ -84,9 +89,9 @@
       <input
         type="text"
         class="form-control"
-        id="email"
+        name="email"
         placeholder="Correo electronico"
-        value=""
+        value="{{data.proveedor.email}}"
       />
     </div>
 
@@ -95,9 +100,9 @@
       <input
         type="text"
         class="form-control"
-        id="web"
+        name="web_site"
         placeholder="Sitio web"
-        value=""
+        value="{{data.proveedor.web_site}}"
       />
     </div>
 
@@ -109,14 +114,14 @@
           <input
             type="text"
             class="form-control"
-            id="red_social"
+            name="nombre"
             placeholder="Red social"
             value=""
           />
           <input
             type="text"
             class="form-control need_margin_lef"
-            id="red_social_cuenta"
+            name="valor"
             placeholder="Cuenta"
             value=""
           />
@@ -143,9 +148,9 @@
       <input
         type="text"
         class="form-control"
-        id="representante"
+        name="representante"
         placeholder="Representante"
-        value=""
+        value="{{data.proveedor.representante}}"
       />
     </div>
     <div class="mb-3">
@@ -153,9 +158,9 @@
       <input
         type="text"
         class="form-control"
-        id="cargo"
+        name="cargo"
         placeholder="Cargo"
-        value=""
+        value="{{data.proveedor.cargo}}"
       />
     </div>
     <div class="mb-3">
@@ -163,9 +168,9 @@
       <input
         type="text"
         class="form-control"
-        id="email_representante"
+        name="email_representante"
         placeholder="Correo electronico"
-        value=""
+        value="{{data.proveedor.email_representante}}"
       />
     </div>
     <div class="mb-3">
@@ -173,9 +178,9 @@
       <input
         type="text"
         class="form-control"
-        id="email_representante_personal"
+        name="email_personal_representante"
         placeholder="Correo electronico"
-        value=""
+        value="{{data.proveedor.email_personal_representante}}"
       />
     </div>
     <div class="mb-3">
@@ -183,9 +188,9 @@
       <input
         type="text"
         class="form-control"
-        id="tlf_representate"
+        name="tlf_representate"
         placeholder="Telefono"
-        value=""
+        value="{{data.proveedor.tlf_representate}}"
       />
     </div>
 
@@ -194,9 +199,9 @@
       <input
         type="text"
         class="form-control"
-        id="tlf_representate_local"
+        name="tlf_local"
         placeholder="Telefono"
-        value=""
+        value="{{data.proveedor.tlf_local}}"
       />
     </div>
     <div class="mb-3">
@@ -205,9 +210,9 @@
       <input
         type="text"
         class="form-control"
-        id="pais_recidencia"
+        name="pais_representante"
         placeholder="Pais"
-        value=""
+        value="{{data.proveedor.pais_representante}}"
       />
     </div>
 
@@ -246,6 +251,6 @@
   </div>
 
   <div class="d-grid gap-2 col-6 mx-auto form-button-box">
-    <button class="btn btn-primary" type="button">Guardar</button>
+    <button class="btn btn-primary" type="submit">Guardar</button>
   </div>
 </form>

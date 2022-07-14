@@ -17,7 +17,8 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path("users/", include("lab_ati.users.urls", namespace="users")),
+    path("users/", include("lab_ati.users.urls", namespace="users")), 
+    path("proveedor/", include("lab_ati.proveedor.urls")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -25,7 +26,7 @@ if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
 
-from lab_ati.proveedor.views import createProveedor,listProveedor,seeProveedor,updateProveedor
+
 # API URLS
 urlpatterns += [
     # API base url
@@ -39,10 +40,7 @@ urlpatterns += [
         name="api-docs",
     ),
     #path('proveedor/crear', createProveedor, name='createProveedor')
-    path('proveedor/', listProveedor, name='listProveedor'),
-    path('proveedor/see', seeProveedor, name='seeProveedor'),
-    path('proveedor/crear', createProveedor, name='createProveedor'),
-    path('proveedor/modificar', updateProveedor, name='updateProveedor')
+    
 ]
 
 if settings.DEBUG:
