@@ -31,11 +31,12 @@
     margin-bottom: 16px;
     border-radius: 6px;
     cursor: pointer;
-    background-color: #4B4BEA;
+    border-bottom: 2px;
     color: white;
     transition: all 1s;
 }
 .main-menu-list__item:hover{
     opacity: .6;
     transition: all 1s;
+    border-color: #4B4BEA
 }

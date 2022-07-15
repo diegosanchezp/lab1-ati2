@@ -1,5 +1,5 @@
 .custom-header{
-    background-color: #F4F1F1;
+    background-color: #79BFFB;
 }
 .custom-header__menu{
     list-style: none;
@@ -7,9 +7,10 @@
 }
 .custom-header__menu-item{
     cursor: pointer;
+    border-bottom: solid 4px;
+    border-color: transparent;
 }
 .custom-header__menu-item:hover{
-    background-color: #1667D7;
-    color: white;
+    border-color: #1667D7;
     transition: all 1s;
 }
