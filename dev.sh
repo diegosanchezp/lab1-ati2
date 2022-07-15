@@ -1,5 +1,8 @@
+#!/bin/bash
+
 COMPOSE_FILE=$(readlink -f local.yml)
 export COMPOSE_FILE
+export DOCKER_BUILDKIT=1
 
 # Wrapper command
 dockerpy(){
@@ -15,7 +18,7 @@ helpmanage(){
 }
 
 # Docker related
-alias runserver='docker-compose up -d'
+alias runserver='docker-compose run --rm --service-ports django'
 alias logs='docker-compose logs --no-log-prefix -f django'
 
 # Python related
