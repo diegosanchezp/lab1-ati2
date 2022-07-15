@@ -3,7 +3,7 @@ from django import forms
 from lab_ati.empresa.models import Empleado
 
 COUNTRY_CHOICES = (
-    ("0", "Selecciona..."),
+    ("", "Selecciona..."),
     ("ve", "Venezuela"),
     ("ec", "Ecuador"),
     ("es", "España"),
@@ -32,24 +32,7 @@ class CreateEmployeeForm(forms.ModelForm):
             if isinstance(field.widget, forms.widgets.Select):
                 field.widget.attrs.update({
                     "class": "form-select",
-                })
-
-    # Override pais field
-    pais = forms.ChoiceField(
-        label="Pais",
-        required=True,
-        error_messages={
-            "required": "El campo pais es requerido",
-        },
-        widget=forms.Select(
-            attrs = {
-                "id": "pais",
-                "name": "pais",
-                "class": "form-select",
-            },
-        ),
-        choices = COUNTRY_CHOICES
-    )
+                })   
 
     class Meta:
         model = Empleado
