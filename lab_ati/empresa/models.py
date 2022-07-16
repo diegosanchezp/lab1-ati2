@@ -4,6 +4,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.utils.translation import gettext_lazy as _
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from django.core import validators
 
 # Create your models here.
 class DirABC(models.Model):
@@ -66,7 +67,12 @@ class Empleado(DirABC):
 
     nombre = models.TextField(_("Nombre"))
     apellido = models.TextField(_("Apellido"))
-    ci = models.TextField(_("Cédula o nro pasaporte"))
+    ci = models.TextField(_("Cédula o nro pasaporte"), validators=[validators.RegexValidator(
+                                    regex='^(0|[1-9][0-9]*)$',
+                                    message=_('El campo debe ser un númérico'),
+                                    code='ci_invalido'
+                                )
+                            ])
     cargo=models.TextField(_("Cargo"))
 
     empresa=models.ForeignKey(
@@ -83,8 +89,20 @@ class Empleado(DirABC):
     )
     email_emp = models.EmailField(_("Correo electrónico de la empresa"))
     email_p = models.EmailField(_("Correo personal"))
-    tlf_celular=models.TextField(_("Teléfono celular"))
-    tlf_local=models.TextField(_("Teléfono local"))
+    tlf_celular=models.TextField(
+        _("Teléfono celular"),
+        validators=[validators.RegexValidator(
+                                    regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
+                                    message=_('El campo debe ser un número de teléfono'),
+                                    code='tlf_celular_invalido'
+                                )
+                            ])                             
+    tlf_local=models.TextField(_("Teléfono local"), validators=[validators.RegexValidator(
+                                    regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
+                                    message=_('El campo debe ser un número de teléfono'),
+                                    code='tlf_local_invalido'
+                                )
+                            ])
 
     def __str__(self):
         return f"{self.nombre} {self.ci} {self.email_p}"
