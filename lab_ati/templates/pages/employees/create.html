@@ -1,0 +1,149 @@
+{% extends "../../base.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="general-container w-100">
+    {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link="" %}
+    <h2 class="text-center pb-4">
+        {% if object == None %}
+            {% trans "Crea a un empleado con información" %}
+        {% else %}
+            {% trans "Edita la información de un empleado" %}
+        {% endif %}
+        {{empresa.nombre}}
+    </h2>
+    <form method="POST" class="container d-grid gap-3 pb-4">
+        {% csrf_token %}
+        <section class="row">
+            <section class="col input-group">
+                <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.nombre.label_tag }}</label>
+                {{ form.nombre }}
+                {% for error in for.nombre.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+            <section class="col input-group">
+                <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.apellido.label_tag }}</label>
+                {{ form.apellido }}
+                {% for error in for.nombre.errors %}
+                    <span class="invalid-feedback">{{ apellido }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row">
+
+            <section class="col input-group">
+                <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.cargo.label_tag }}</label>
+                {{ form.cargo }}
+                {% for error in for.cargo.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+
+            <section class="col input-group">
+                <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.ci.label_tag }}</label>
+                {{ form.ci }}
+                {% for error in for.ci.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.modalidad_contratacion.label_tag }}</label>
+                {{ form.modalidad_contratacion }}
+                {% for error in for.modalidad_contratacion.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.email_emp.label_tag }}</label>
+                {{ form.email_emp }}
+                {% for error in for.email_emp.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.email_p.label_tag }}</label>
+                {{ form.email_p }}
+                {% for error in for.email_p.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.tlf_local.label_tag }}</label>
+                {{ form.tlf_local }}
+                {% for error in for.tlf_local.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.tlf_celular.label_tag }}</label>
+                {{ form.tlf_celular }}
+                {% for error in for.tlf_celular.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.ciudad.label_tag }}</label>
+                {{ form.ciudad }}
+                {% for error in for.ciudad.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
+                <label class="input-group-text">{{ form.pais.label_tag }}</label>
+                {{ form.pais }}
+                {% for error in for.pais.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>   
+            <input type="hidden" name="empresa" value="{{ business_id }}" />
+            </section>
+    
+        <section class="row">
+            <section class="col input-group">
+                <h5>Redes sociales</h5>
+                <ul class="list-group list-group w-100" id="socialNetworkList" ></ul>
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
+                {% include "common/social_media_form.html" with socialm_formset=socialm_formset%}
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col">
+                <button class="btn btn-primary">
+                    {% if object == None %}
+                        {% trans "Crear empleado" %}
+                    {% else %}
+                        {% trans "Editar empleado" %}
+                    {% endif %}
+                </button>
+            </section>
+            
+        </section>
+    </form>
+</section>
+{% endblock content %}
+{% block inline_javascript %}
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new SocialMediaController();
+        });
+    </script>
+{% endblock %}
