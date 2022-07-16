@@ -18,12 +18,11 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("lab_ati.users.urls", namespace="users")),
-    path("business/", include("lab_ati.empresa.urls", namespace="empresa")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     # Business urls
+    path("business/", include("lab_ati.empresa.urls", namespace="business")),
     # Employee urls
-    path("business/", include("empresa.urls"))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
