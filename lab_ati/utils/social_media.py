@@ -4,7 +4,11 @@ def add_social_media(model_obj, formset):
     """
 
     instances = formset.save(commit=False)
+    # Add
     for socialmedia in instances:
-        # do something with instance
         socialmedia.content_object = model_obj
         socialmedia.save()
+
+    # Delete
+    for socialmedia in formset.deleted_objects:
+        socialmedia.delete()

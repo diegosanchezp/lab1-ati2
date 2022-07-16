@@ -10,6 +10,7 @@
         {% else %}
             {% trans "Edita la información de un empleado" %}
         {% endif %}
+        {{empresa.nombre}}
     </h2>
     <form method="POST" class="container d-grid gap-3 pb-4">
         {% csrf_token %}
@@ -100,7 +101,7 @@
             </section>
         </section>
 
-        <section class="row"">
+        <section class="row">
             <section class="col input-group">
                 <label class="input-group-text">{{ form.pais.label_tag }}</label>
                 {{ form.pais }}
@@ -120,27 +121,7 @@
 
         <section class="row">
             <section class="col input-group">
-                <section class="d-grid">
-                    <h5>Inserte una red social</h5>
-                    <section class="row">
-                        <section class="col input-group">
-                            <label class="input-group-text">Nombre</label>
-                            <input class="form-control" id="socialNetworkName" >
-                        </section>
-                        <section class="col input-group">
-                            <label class="input-group-text">Valor</label>
-                            <input class="form-control" id="socialNetworkValue">
-                        </section>
-                        <section class="col input-group btn-group">
-                            <button type="button" class="btn btn-danger" id="socialNetworkRemoveButton">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                            <button type="button" class="btn btn-primary" id="socialNetworkAddButton">
-                                <i class="bi bi-plus"></i>
-                            </button>
-                        </section>
-                    </section>
-                </section>
+                {% include "common/social_media_form.html" with socialm_formset=socialm_formset%}
             </section>
         </section>
 
@@ -160,73 +141,9 @@
 </section>
 {% endblock content %}
 {% block inline_javascript %}
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        let socialNetworks = []
-
-        function addSocialNetwork(){
-            const socialNetworkName = document.getElementById('socialNetworkName').value
-            const socialNetworkValue = document.getElementById('socialNetworkValue').value
-            const socialNetworkList = document.getElementById('socialNetworkList')
-            const socialNetworks = document.querySelectorAll('#socialNetworkList li')
-            
-            if(socialNetworkName != null && socialNetworkValue){
-                const socialNetworkItem = document.createElement('li')
-                socialNetworkItem.classList = ["list-group-item"]
-                socialNetworkItem.id = `socialNetwork-${socialNetworks.length + 1}`
-
-                const socialNetworkLabelContainer = document.createElement('label')
-                socialNetworkLabelContainer.classList = ["d-flex align-items-center"]
-                socialNetworkLabelContainer.for = `socialNetworkCheck-${socialNetworks.length + 1}` 
-
-                const inputCheck = document.createElement('input')
-                inputCheck.classList = ["form-check-input mt-0"]
-                inputCheck.type = "checkbox"
-                inputCheck.name = "socialNetworks[]"
-                //inputCheck.value = `${socialNetworkName},${socialNetworkValue}`
-                inputCheck.checked = false
-                inputCheck.id = `socialNetworkCheck-${socialNetworks.length + 1}` 
-
-                const socialNetWorkText = document.createElement('p')
-                socialNetWorkText.classList = ["mb-0 mx-2"]
-
-                const text = document.createTextNode(`${socialNetworkName}: ${socialNetworkValue}`);
-
-                socialNetWorkText.appendChild(text)
-
-                socialNetworkLabelContainer.appendChild(inputCheck)
-                socialNetworkLabelContainer.appendChild(socialNetWorkText)
-
-                socialNetworkItem.appendChild(socialNetworkLabelContainer)
-                
-                socialNetworkList.appendChild(socialNetworkItem)
-                
-                document.getElementById('socialNetworkName').value = ""
-                document.getElementById('socialNetworkValue').value = ""
-            }
-        } 
-
-        function removeSocialNetwork(){
-            const socialNetworks = document.querySelectorAll('#socialNetworkList li')
-
-            socialNetworks.forEach((socialNetwork) => {
-                if(Array.from(socialNetwork.childNodes[0].childNodes).find((element) => element.type === "checkbox").checked){
-                    document.getElementById('socialNetworkList').removeChild(socialNetwork)
-                }
-            })
-        }
-
-        document.getElementById('socialNetworkAddButton').addEventListener('click', () => {
-            addSocialNetwork()
-        })
-
-        document.getElementById('socialNetworkRemoveButton').addEventListener('click', () => {
-            removeSocialNetwork()
-        })
-
-        document.getElementsByName("modalidad_contratacion")[0].childNodes.forEach((country) => {
-            if(country.value == "") country.disabled = true
-        })
-    });
-</script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new SocialMediaController();
+        });
+    </script>
 {% endblock %}
