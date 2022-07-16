@@ -1,10 +1,16 @@
 {{ socialm_formset.management_form }}
 
-<section class="d-grid" id="social-container">
+<section class="d-grid">
   <section class="row">
     <section class="col input-group">
-      <section class="d-grid" id="social-container">
+      <section class="d-grid gap-3" id="social-container" data-editing="{{editing_social}}">
 
+        {% if editing_social %}
+          {# this is an area to hide the formsets to delete #}
+          <section class="d-none" id="to-delete"> 
+
+          </section>
+        {% endif %}
       {% for socialm_form in socialm_formset %}
         {{ socialm_form.id }}
         <section class="row" id="">
@@ -17,9 +23,17 @@
             {{ socialm_form.valor }}
           </section>
           <section class="col input-group btn-group">
+
+            {% if editing_social %}
+              <div class="d-none">
+                {{ socialm_form.DELETE }}
+              </div>
+            {% endif %}
+
             <button type="button" class="btn btn-danger" data-btn-type="socialNetworkRemoveButton">
               <i class="bi bi-trash"></i>
             </button>
+
             <button type="button" class="btn btn-primary" data-btn-type="socialNetworkAddButton">
               <i class="bi bi-plus"></i>
             </button>

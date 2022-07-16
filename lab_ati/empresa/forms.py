@@ -49,5 +49,6 @@ SocialMediaFormset = forms.modelformset_factory(
     widgets={
         "nombre": custom_text_input,
         "valor": custom_text_input
-    }
+    },
+    can_delete=True,
 )
