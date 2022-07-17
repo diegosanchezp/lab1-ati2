@@ -36,9 +36,27 @@ class CreateBusinessView(CreateView):
 
     def get_success_url(self):
         return reverse(
-            "empresa:business-list"
+            "empresa:edit-business",
+            kwargs={
+                "pk": self.object.pk,
+            }
+        )
+
+class EditBusinessView(UpdateView):
+    template_name = "pages/business/create.html"
+    model = Empresa
+    form_class = CreateBusinessForm
+    pk_url_kwarg = "pk"
+
+    def get_success_url(self):
+        return reverse(
+            "empresa:edit-business",
+            kwargs={
+                "pk": self.object.pk
+            }
         )
     
+
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"
     model = Empleado
