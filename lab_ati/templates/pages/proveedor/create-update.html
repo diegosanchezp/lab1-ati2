@@ -4,10 +4,9 @@
 
 {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link="" %}
 {% if data.update == True %}
-<h2>Modificar Proveedor {{data.proveedor.nombre}}</h2>
-<h6>De {{data.proveedor.empresa.nombre}}</h6>
+<h2>{% trans "Modificar proveedor" %} {{data.proveedor.nombre}}</h2>
 {% else %}
-<h2>Registro de Proveedor para empresa {{ data.empresa.nombre}}</h2>
+<h2>{% trans "Registro de Proveedor para empresa" %} {{ data.empresa.nombre}}</h2>
 {% endif %}
 
 <div class="container col-8 mx-auto" id="form-box">
