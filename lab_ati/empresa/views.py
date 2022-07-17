@@ -11,7 +11,7 @@ from lab_ati.utils.social_media import add_social_media
 from django.urls import reverse
 
 # Create your views here.
-
+ 
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"
     model = Empleado

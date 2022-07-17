@@ -1,0 +1,256 @@
+<form
+  enctype="multipart/form-data"
+  action="/proveedor/crear?empresa{{data.empresa.id}}"
+  method="post"
+>
+  {% csrf_token %}
+  <div class="section-box">
+    <p class="fw-bold fs-5">Información del proveedor</p>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input
+        name="nombre"
+        type="text"
+        class="form-control"
+        placeholder="Nombre"
+        value="{{data.proveedor.nombre}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Servicio que proporciona</label>
+      <input
+        type="text"
+        class="form-control"
+        name="servicio_proporciona"
+        placeholder="Servicio"
+        value="{{data.proveedor.servicio_proporciona}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Número de identificación tributaria</label>
+      <input
+        type="text"
+        class="form-control"
+        name="id_tributaria"
+        placeholder="Identificación tributaria"
+        value="{{data.proveedor.id_tributaria}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Telefono</label>
+      <input
+        type="text"
+        class="form-control"
+        name="tlf"
+        placeholder="Telefono"
+        value="{{data.proveedor.tlf}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Dirección</label>
+      <input
+        type="text"
+        class="form-control"
+        name="direccion"
+        placeholder="Dirección"
+        value="{{data.proveedor.direccion}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Ciudad/Provincia</label>
+      <input
+        type="text"
+        class="form-control"
+        name="ciudad"
+        placeholder="Ciudad o Provincia"
+        value="{{data.proveedor.ciudad}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Pais</label>
+      <input
+        type="text"
+        class="form-control"
+        name="pais"
+        placeholder="Pais"
+        value="{{data.proveedor.pais}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Correo electronico de la empresa</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        placeholder="Correo electronico"
+        value="{{data.proveedor.email}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Sitio web</label>
+      <input
+        type="text"
+        class="form-control"
+        name="web_site"
+        placeholder="Sitio web"
+        value="{{data.proveedor.web_site}}"
+      />
+    </div>
+
+    <div class="mb-3" id="proveedor-red">
+      <!--TODO poder agregar n redes sociales, redNombre y usuario-->
+      <label class="form-label">Redes sociales</label>
+      <div class="mb-3">
+        <div class="one_line_flex last-line">
+          <input
+            type="text"
+            class="form-control"
+            name="nombre"
+            placeholder="Red social"
+            value=""
+          />
+          <input
+            type="text"
+            class="form-control need_margin_lef"
+            name="valor"
+            placeholder="Cuenta"
+            value=""
+          />
+          <div
+            class="d-grid gap-2 d-md-flex justify-content-md-end need_margin_lef"
+          >
+            <button
+              class="btn btn-primary me-md-2 agregar-red-proveedor"
+              type="button"
+            >
+              Nueva
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section-box">
+    <p class="fw-bold fs-5">Información del representante</p>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre y apellido del representante</label>
+      <input
+        type="text"
+        class="form-control"
+        name="representante"
+        placeholder="Representante"
+        value="{{data.proveedor.representante}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Cargo</label>
+      <input
+        type="text"
+        class="form-control"
+        name="cargo"
+        placeholder="Cargo"
+        value="{{data.proveedor.cargo}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Correo del representante de la empresa</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email_representante"
+        placeholder="Correo electronico"
+        value="{{data.proveedor.email_representante}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Correo personal del representante</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email_personal_representante"
+        placeholder="Correo electronico"
+        value="{{data.proveedor.email_personal_representante}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Telefono celular</label>
+      <input
+        type="text"
+        class="form-control"
+        name="tlf_representate"
+        placeholder="Telefono"
+        value="{{data.proveedor.tlf_representate}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Telefono local</label>
+      <input
+        type="text"
+        class="form-control"
+        name="tlf_local"
+        placeholder="Telefono"
+        value="{{data.proveedor.tlf_local}}"
+      />
+    </div>
+    <div class="mb-3">
+      <!--TODO lista de paises-->
+      <label class="form-label">Pais de recidencia</label>
+      <input
+        type="text"
+        class="form-control"
+        name="pais_representante"
+        placeholder="Pais"
+        value="{{data.proveedor.pais_representante}}"
+      />
+    </div>
+
+    <div class="mb-3" id="proveedor-representante-red">
+      <!--TODO poder agregar n redes sociales, redNombre y usuario-->
+      <label class="form-label">Redes sociales</label>
+      <div class="mb-3">
+        <div class="one_line_flex last-line">
+          <input
+            type="text"
+            class="form-control"
+            id="red_social"
+            placeholder="Red social"
+            value=""
+          />
+          <input
+            type="text"
+            class="form-control need_margin_lef"
+            id="red_social_cuenta"
+            placeholder="Cuenta"
+            value=""
+          />
+          <div
+            class="d-grid gap-2 d-md-flex justify-content-md-end need_margin_lef"
+          >
+            <button
+              class="btn btn-primary me-md-2 agregar-red-proveedor"
+              type="button"
+            >
+              Nueva
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-grid gap-2 col-6 mx-auto form-button-box">
+    <button class="btn btn-primary" type="submit">Guardar</button>
+  </div>
+</form>
