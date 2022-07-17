@@ -1,4 +1,7 @@
 /* These styles are generated from project.scss. */
+@import url('./components/_index.css');
+@import url('./pages/_index.css');
+@import url('_utils.css');
 
 .alert-debug {
   color: black;
