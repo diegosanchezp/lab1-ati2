@@ -17,7 +17,8 @@ urlpatterns = [
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path("users/", include("lab_ati.users.urls", namespace="users")),
+    path("users/", include("lab_ati.users.urls", namespace="users")), 
+    path("proveedor/", include("lab_ati.proveedor.urls")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     # Business urls
@@ -28,6 +29,7 @@ urlpatterns = [
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()
+
 
 # API URLS
 urlpatterns += [
@@ -41,6 +43,8 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    #path('proveedor/crear', createProveedor, name='createProveedor')
+    
 ]
 
 if settings.DEBUG:

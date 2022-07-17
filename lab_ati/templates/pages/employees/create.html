@@ -3,14 +3,14 @@
 
 {% block content %}
 <section class="general-container w-100">
-    {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link="" %}
+    {% include "../../common/navigation-bar.html" %}
     <h2 class="text-center pb-4">
         {% if object == None %}
             {% trans "Crea a un empleado con información" %}
         {% else %}
             {% trans "Edita la información de un empleado" %}
         {% endif %}
-        {{empresa.nombre}}
+        | {{empresa.nombre}}
     </h2>
     <form method="POST" class="container d-grid gap-3 pb-4">
         {% csrf_token %}
@@ -18,14 +18,14 @@
             <section class="col input-group">
                 <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.nombre.label_tag }}</label>
                 {{ form.nombre }}
-                {% for error in for.nombre.errors %}
+                {% for error in form.nombre.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.apellido.label_tag }}</label>
                 {{ form.apellido }}
-                {% for error in for.nombre.errors %}
+                {% for error in form.nombre.errors %}
                     <span class="invalid-feedback">{{ apellido }}</span>
                 {% endfor %}
             </section>
@@ -33,84 +33,103 @@
 
         <section class="row">
 
-            <section class="col input-group">
-                <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.cargo.label_tag }}</label>
-                {{ form.cargo }}
-                {% for error in for.cargo.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.cargo.label_tag }}</label>
+                    {{ form.cargo }}
+                </section>
+                {% for error in form.cargo.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
 
-            <section class="col input-group">
-                <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.ci.label_tag }}</label>
-                {{ form.ci }}
-                {% for error in for.ci.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.ci.label_tag }}</label>
+                    {{ form.ci }}
+                </section>
+                {% for error in form.ci.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
         </section>
 
         <section class="row">
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.modalidad_contratacion.label_tag }}</label>
-                {{ form.modalidad_contratacion }}
-                {% for error in for.modalidad_contratacion.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.modalidad_contratacion.label_tag }}</label>
+                    {{ form.modalidad_contratacion }}
+                </section>
+                {% for error in form.modalidad_contratacion.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.email_emp.label_tag }}</label>
-                {{ form.email_emp }}
-                {% for error in for.email_emp.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
-                {% endfor %}
-            </section>
-        </section>
-
-        <section class="row">
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.email_p.label_tag }}</label>
-                {{ form.email_p }}
-                {% for error in for.email_p.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
-                {% endfor %}
-            </section>
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.tlf_local.label_tag }}</label>
-                {{ form.tlf_local }}
-                {% for error in for.tlf_local.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.email_emp.label_tag }}</label>
+                    {{ form.email_emp }}
+                </section>
+                {% for error in form.email_emp.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
         </section>
 
         <section class="row">
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.tlf_celular.label_tag }}</label>
-                {{ form.tlf_celular }}
-                {% for error in for.tlf_celular.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.email_p.label_tag }}</label>
+                    {{ form.email_p }}
+                </section>
+                {% for error in form.email_p.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.ciudad.label_tag }}</label>
-                {{ form.ciudad }}
-                {% for error in for.ciudad.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.tlf_local.label_tag }}</label>
+                    {{ form.tlf_local }}
+                </section>
+                {% for error in form.tlf_local.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
         </section>
 
         <section class="row">
-            <section class="col input-group">
-                <label class="input-group-text">{{ form.pais.label_tag }}</label>
-                {{ form.pais }}
-                {% for error in for.pais.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.tlf_celular.label_tag }}</label>
+                    {{ form.tlf_celular }}
+                </section>
+                {% for error in form.tlf_celular.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
-            </section>   
+            </section>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.ciudad.label_tag }}</label>
+                    {{ form.ciudad }}
+                </section>
+                {% for error in form.ciudad.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row"">
+            <section class="col">    
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.pais.label_tag }}</label>
+                    {{ form.pais }}
+                </section>   
+                {% for error in form.pais.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                {% endfor %}
+            </section>
+            
             <input type="hidden" name="empresa" value="{{ business_id }}" />
-            </section>
+        </section>
     
         <section class="row">
             <section class="col input-group">
@@ -135,7 +154,6 @@
                     {% endif %}
                 </button>
             </section>
-            
         </section>
     </form>
 </section>
