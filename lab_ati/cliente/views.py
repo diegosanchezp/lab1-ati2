@@ -42,6 +42,7 @@ def crear_cliente(request, business_id):
 def eliminar_cliente(request, id, business_id):
     cliente = Cliente.objects.get(id = id)
     cliente.delete()
+    context = {}
     context["list_link"] = reverse("clients", kwargs={"business_id": business_id} )
     return redirect('clients', business_id = business_id)
 
@@ -60,4 +61,6 @@ def editar_cliente(request, id, business_id):
     context['form'] = form
     context["socialm_formset"] = SocialMediaFormset(queryset=cliente.redes_sociales.all())
     context["list_link"] = reverse("clients", kwargs={"business_id": business_id} )
+    context["editing_social"] = True
+
     return render(request, 'pages/clientes/editar.html', context)
