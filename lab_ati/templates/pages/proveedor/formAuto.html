@@ -30,8 +30,10 @@
     {% endif %}
     {% endif %}
     {% endfor %}
+    <p>Redes sociales</p>
+    {% include "common/social_media_form.html" with socialm_formset=data.socialMedia%}
 
-    <p class="fw-bold fs-5">Información del represnetante</p>
+    <p class="fw-bold fs-5">Información del representante</p>
 
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
@@ -49,7 +51,11 @@
     {% endif %}
     {% endif %}
     {% endfor %}
-    
+  
+    <!--
+    <p>Redes sociales</p>
+    {% include "common/social_media_form.html" with socialm_formset=data.socialMediaRepresentante%}
+    -->
     <div class="mb-3" style="display: none;">
       <label class="form-label">Empresa</label>
       <input

@@ -6,6 +6,9 @@
 ```python
 # Importar el formset
 from lab_ati.empresa.forms import SocialMediaFormset
+
+# Importar el modelo SocialMedia
+from lab_ati.empresa.models import SocialMedia
 ```
 
 ```python
@@ -17,6 +20,7 @@ Por ejemplo en una vista basada en clases
 ```python
 def get_context_data(self, **kwargs):
   context = super().get_context_data(**kwargs)
+  # Queryset vacio porque vamos a crear un empleado nuevo
   context["socialm_formset"] = SocialMediaFormset(queryset=SocialMedia.objects.none())
   return context
 ```
@@ -26,7 +30,7 @@ def get_context_data(self, **kwargs):
 ```html
 <form method="POST">
   <!--- ... -->
-  {% include "common/social_media_form.html" with=socialm_formset=socialm_formset%}
+  {% include "common/social_media_form.html" with socialm_formset=socialm_formset%}
   <!--- ... -->
 </form>
 ```
@@ -51,7 +55,6 @@ También puede ser un archivo .js
 
 # Importar
 from lab_ati.utils.social_media import add_social_media
-
 #...
 
 social_media_formset = SocialMediaFormset(data=request.POST)

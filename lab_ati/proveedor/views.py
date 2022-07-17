@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Proveedor
 from .forms import ProveedorForm
-from ..empresa.models import Empresa
+#from ..empresa.models import Empresa, SocialMedia 
 from django.template.defaulttags import register
+from lab_ati.empresa.models import Empresa, SocialMedia
+from lab_ati.empresa.forms import SocialMediaFormset
+from lab_ati.utils.social_media import add_social_media
 
 @register.filter
 def get_item(objectList, key):
@@ -19,10 +22,19 @@ def createProveedor(request):
     empresa = Empresa.objects.get(id=empresaId)
     if(empresa == None):
       return render(request,'404.html')
-    print(empresa)
+    #print(empresa)
     formularioProveedor = ProveedorForm(request.POST or request.GET)
     context = {}
-    context["data"] = { "empresa":empresa,"update":False, "formulario":formularioProveedor}
+    proveedorSocialMedia = SocialMediaFormset(queryset=SocialMedia.objects.none())
+    #socialMediaRepresentanteForm = SocialMediaFormset(queryset=SocialMedia.objects.none())
+    #print(proveedorSocialMedia)
+    context["data"] = { 
+      "empresa":empresa,
+      "update":False, 
+      "formulario":formularioProveedor,
+      "socialMedia" : proveedorSocialMedia,
+      #"socialMediaRepresentante" : socialMediaRepresentanteForm
+      }
     return render(request,'pages/proveedor/create-update.html', context)
 
   elif request.method == 'POST':
@@ -33,10 +45,13 @@ def createProveedor(request):
     if(empresa == None):
       return render(request,'404.html')
     formularioProveedor = ProveedorForm(request.POST or None)
-    print(formularioProveedor)
-    if formularioProveedor.is_valid():
+    #print(formularioProveedor)
+    social_media_formset = SocialMediaFormset(data=request.POST)
+    #print(social_media_formset)
+    if formularioProveedor.is_valid() and social_media_formset.is_valid():
       print('is valid!')
-      formularioProveedor.save()
+      proveedorSaved = formularioProveedor.save()
+      add_social_media(proveedorSaved,social_media_formset)
     return redirect('/proveedor?empresa='+empresaId)
     
 def updateProveedor(request):
@@ -50,12 +65,14 @@ def updateProveedor(request):
       return render(request,'404.html') 
     print(proveedor)
     formularioProveedor = ProveedorForm(request.POST or request.GET)
+    socialMediaForm = SocialMediaFormset(queryset=proveedor.redes_sociales.all())
     context = {
       "data":{
         "proveedor":proveedor,
         "empresa":{"id":proveedor.empresa.id},
         "update":True,
-        "formulario":formularioProveedor
+        "formulario":formularioProveedor,
+        "socialMedia":socialMediaForm,
       }
     }
     return render(request,'pages/proveedor/create-update.html',context)
@@ -69,11 +86,15 @@ def updateProveedor(request):
       return render(request,'404.html')
     print(oldProveedor)
     formularioProveedor = ProveedorForm(request.POST, instance=oldProveedor)
+    
     print(formularioProveedor)
     empresaId = str(oldProveedor.empresa.id)
     if formularioProveedor.is_valid():
       print('is valid!')
-      formularioProveedor.save()
+      proveedorSaved = formularioProveedor.save()
+      social_media_formset = SocialMediaFormset(data=request.POST, queryset=proveedorSaved.redes_sociales.all())
+      if social_media_formset.is_valid():
+        add_social_media(proveedorSaved,social_media_formset)
     return redirect('/proveedor?empresa='+empresaId)
 
 
@@ -122,8 +143,10 @@ def seeProveedor(request):
   proveedor = Proveedor.objects.get(id=proveedorId)
   if(proveedor == None):
     return render(request,'pages/404.html')
+  socialMediaForm = SocialMediaFormset(queryset=proveedor.redes_sociales.all())
   context = {
     "proveedor" :proveedor,
+    "socialMedia":socialMediaForm
   }
   return render(request,'pages/proveedor/read.html', context)
 

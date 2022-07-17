@@ -18,10 +18,6 @@ class Proveedor(EmpresaABC):
         to="empresa.SocialMedia",
         verbose_name=_("Redes sociales del representante"),
     )
-    redes_proveedor=GenericRelation(
-        to="empresa.SocialMedia",
-        verbose_name=_("Redes sociales del proveedor"),
-    )
     empresa=models.ForeignKey(
         to="empresa.Empresa",
         on_delete=models.CASCADE,
@@ -30,3 +26,4 @@ class Proveedor(EmpresaABC):
         blank=True,
         verbose_name=_("Empresa"),
     )
+    

@@ -4,8 +4,15 @@ class SocialMediaController {
     this.socialContainer = document.getElementById("social-container");
     this.totalFormsEl = document.getElementById("id_form-TOTAL_FORMS");
     this.totalForms = parseInt(this.totalFormsEl.value);
-    this.templateRow = this.socialContainer.querySelector(".row"); // First Row
-    this.setupEvents(this.templateRow);
+    this.templateRow = this.socialContainer.querySelector(".row:last-child"); // Last Row
+    // Setup event listeners for all rows
+    this.socialContainer
+      .querySelectorAll(".row")
+      .forEach((row) => this.setupEvents(row));
+    this.editing = this.socialContainer.dataset.editing;
+
+    this.toDeleteArea = this.socialContainer.querySelector("#to-delete");
+    this.templateRow.dataset.isEmpty = true;
   }
 
   // Add delete and add event listners to a row
@@ -13,6 +20,15 @@ class SocialMediaController {
     // Bind methods as events, pass this class instance
     element.addEventListener("click", this.deleteSocialMediaInputs.bind(this));
     element.addEventListener("click", this.addSocialMediaInputs.bind(this));
+  }
+
+  // Setup a ROW state
+  setupState(element) {
+    const inputs = element.querySelectorAll("input");
+
+    inputs.forEach((input) => {
+      input.value = "";
+    });
   }
 
   addSocialMediaInputs(event) {
@@ -31,6 +47,7 @@ class SocialMediaController {
     ); //Update the new form to have the correct form number
 
     this.setupEvents(newRow);
+    this.setupState(newRow);
 
     //Insert the new form below the row
     event.currentTarget.insertAdjacentElement("afterend", newRow);
@@ -45,8 +62,23 @@ class SocialMediaController {
     if (event.target.dataset.btnType !== "socialNetworkRemoveButton") return;
 
     // Decrease
-    this.totalForms -= 1;
-    this.totalFormsEl.setAttribute("value", this.totalForms);
-    event.currentTarget.remove();
+    if (event.currentTarget.dataset.isEmpty) {
+      this.totalForms -= 1;
+      this.totalFormsEl.setAttribute("value", this.totalForms);
+    }
+    if (this.editing) {
+      const checkbox = event.currentTarget.querySelector(
+        "input[type='checkbox'"
+      );
+
+      checkbox.checked = true;
+
+      this.toDeleteArea.appendChild(event.currentTarget);
+    }
+
+    if (!this.editing) {
+      // Remove
+      event.currentTarget.remove();
+    }
   }
 }

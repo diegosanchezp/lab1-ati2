@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% load i18n %}
+{% block content %}
 {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link="" %}
 <h2>Proveedor {{proveedor.nombre}}</h2>
 <h6>De {{proveedor.empresa.nombre}}</h6>
@@ -42,7 +44,24 @@
       </tbody>
     </table>
   </div>
-  
+  <br/>
+  <h5>Redes sociales</h5>
+  <div class="container col-8 mx-auto">
+    <table class="table">
+      <tbody>
+        {% for redSocial in socialMedia %}
+        {% if redSocial.nombre.value != None %}
+        <tr>
+          <td>{{redSocial.nombre.value}}</td>
+          <td>{{redSocial.valor.value}}</td>
+        </tr>
+        {% endif %}
+        
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
   <br/>
   <h5>Información del representante</h5>
   <div class="container col-8 mx-auto">
@@ -82,6 +101,8 @@
         </tr>
       </tbody>
     </table>
+    
+
   </div>
 
 {% endblock content %}
