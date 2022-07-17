@@ -35,7 +35,7 @@ class EmpresaABC(DirABC):
         abstract = True
 
 class Empresa(EmpresaABC):
-    servicio_ofrecido = models.TextField(_(" Servicio que le ofrecimos"))
+    servicio_ofrecido = models.TextField(_("Servicio que le ofrecimos"))
     servicio_proporciona = models.TextField(_("Servicio que proporciona"))
     whatsapp=models.TextField(_("Whatsapp"))
     telefono=models.TextField(_("Teléfono"))

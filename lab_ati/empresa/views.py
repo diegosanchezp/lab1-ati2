@@ -2,7 +2,7 @@ from django.http.response import Http404
 from django.urls.base import reverse_lazy
 
 from django.views.generic import UpdateView, CreateView, ListView, DeleteView, DetailView, TemplateView
-from .forms import CreateEmployeeForm, SocialMediaFormset
+from .forms import CreateBusinessForm, CreateEmployeeForm, SocialMediaFormset
 from lab_ati.empresa.models import Empleado, Empresa, SocialMedia
 from django.urls import reverse
 from django.utils.translation import gettext as _
@@ -29,6 +29,16 @@ class DeleteBusinessView(DeleteView):
     def get_success_url(self):
         return reverse('empresa:business-list')
 
+class CreateBusinessView(CreateView):
+    template_name = "pages/business/create.html"
+    model = Empresa
+    form_class = CreateBusinessForm
+
+    def get_success_url(self):
+        return reverse(
+            "empresa:business-list"
+        )
+    
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"
     model = Empleado
