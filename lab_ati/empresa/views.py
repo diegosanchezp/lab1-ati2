@@ -6,14 +6,13 @@ from .forms import CreateEmployeeForm, SocialMediaFormset
 from lab_ati.empresa.models import Empleado, Empresa, SocialMedia
 from django.urls import reverse
 from django.utils.translation import gettext as _
-from django.core import exceptions, serializers
+from django.core import exceptions
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
 from lab_ati.utils.social_media import add_social_media
 from django.urls import reverse
 
 # Create your views here.
-class EmpresasListView(ListView):
+class BusinessListView(ListView):
 
     template_name = "pages/business/list.html"
     model = Empresa
@@ -22,6 +21,13 @@ class EmpresasListView(ListView):
     def get_queryset(self):
         queryset = Empresa.objects.all()
         return queryset
+
+class DeleteBusinessView(DeleteView):
+    template_name = "pages/business/delete.html"
+    model = Empresa
+
+    def get_success_url(self):
+        return reverse('empresa:business-list')
 
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"
