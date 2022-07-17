@@ -127,6 +127,16 @@
 
         <section class="row">
             <section class="col input-group">
+                <label for="{{ form.cliente_empresa.id_for_label }}" class="input-group-text">{{ form.cliente_empresa.label_tag }}</label>
+                {{ form.cliente_empresa }}
+                {% for error in for.cliente_empresa.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
                 <h5>{% trans 'Redes sociales' %}</h5>
                 <ul class="list-group list-group w-100" id="socialNetworkList" ></ul>
             </section>
