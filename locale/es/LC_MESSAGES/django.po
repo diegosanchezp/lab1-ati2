@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-17 19:37+0000\n"
+"POT-Creation-Date: 2022-07-17 19:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,7 +127,7 @@ msgstr "Service we offered"
 msgid "Teléfono"
 msgstr "Phone Number"
 
-#: lab_ati/empresa/models.py:50
+#: lab_ati/empresa/models.py:50 lab_ati/templates/pages/business/detail.html:23
 msgid "Cliente tipo empresa"
 msgstr ""
 
@@ -487,15 +487,15 @@ msgstr "Create a business"
 msgid "Edita la información de una empresa"
 msgstr "Update business information"
 
-#: lab_ati/templates/pages/business/create.html:130
+#: lab_ati/templates/pages/business/create.html:140
 msgid "Redes sociales"
 msgstr "Social networks"
 
-#: lab_ati/templates/pages/business/create.html:145
+#: lab_ati/templates/pages/business/create.html:155
 msgid "Crear empresa"
 msgstr "Create business"
 
-#: lab_ati/templates/pages/business/create.html:147
+#: lab_ati/templates/pages/business/create.html:157
 msgid "Editar empresa"
 msgstr "Update business"
 
@@ -543,12 +543,12 @@ msgstr "How often do you want to stay informed"
 msgid "Cursos de interés"
 msgstr "Course of interest"
 
-#: lab_ati/templates/pages/business/detail.html:27
+#: lab_ati/templates/pages/business/detail.html:28
 #: lab_ati/templates/pages/employees/detail.html:23
 msgid "Editar"
 msgstr "Update"
 
-#: lab_ati/templates/pages/business/detail.html:32
+#: lab_ati/templates/pages/business/detail.html:33
 #: lab_ati/templates/pages/employees/detail.html:28
 msgid "Eliminar"
 msgstr "Delete"

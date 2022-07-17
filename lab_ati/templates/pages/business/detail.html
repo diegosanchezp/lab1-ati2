@@ -20,7 +20,6 @@
             <p class="card-text"> {% trans 'Servicio que proporciona' %}: {{ object.servicio_proporciona }}</p>
             <p class="card-text"> {% trans 'Frecuencia en que desea mantenerse informado' %}: {{ object.frecuencia }}</p>
             <p class="card-text"> {% trans 'Cursos de interés' %}: {{ object.curso_interes }}</p>
-            <p class="card-text"> {% trans 'Cliente tipo empresa' %}: {{ object.cliente_empresa }}</p>
 
             <section class="d-flex justify-content-center">
                 <a href="{% url 'empresa:edit-business' pk=object.id %}">
