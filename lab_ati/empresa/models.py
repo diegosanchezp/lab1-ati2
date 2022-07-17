@@ -58,7 +58,10 @@ class SocialMedia(models.Model):
     valor = models.TextField()
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.CharField(max_length=255)
+    # A hack to allow models have "multiple" social_media fields
+    belongs_to = models.CharField(max_length=255, null=True, blank=True)
     content_object = GenericForeignKey('content_type', 'object_id')
+
     class Meta:
         indexes = [
             models.Index(fields=["content_type", "object_id"]),

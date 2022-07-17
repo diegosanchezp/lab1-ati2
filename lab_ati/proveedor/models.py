@@ -14,10 +14,6 @@ class Proveedor(EmpresaABC):
     tlf_representate=models.TextField(_("Teléfono celular del representante"))
     tlf_local=models.TextField(_("Teléfono local del representante"))
     pais_representante=models.TextField(_("Pais de residencia de representante"))
-    redes_representante=GenericRelation(
-        to="empresa.SocialMedia",
-        verbose_name=_("Redes sociales del representante"),
-    )
     empresa=models.ForeignKey(
         to="empresa.Empresa",
         on_delete=models.CASCADE,
@@ -26,4 +22,11 @@ class Proveedor(EmpresaABC):
         blank=True,
         verbose_name=_("Empresa"),
     )
-    
+
+    @property
+    def redes_representante(self):
+        return self.redes_sociales.filter(belongs_to='redes_representante')
+
+    @property
+    def redes_proveedor(self):
+        return self.redes_sociales.filter(belongs_to='redes_proveedor')

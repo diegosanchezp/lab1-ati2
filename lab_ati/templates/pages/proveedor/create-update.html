@@ -18,7 +18,9 @@
 {% block inline_javascript %}
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      new SocialMediaController();
+      new SocialMediaController("proveedorSocial");
+      // Aqui iria el id de las redes sociales del representante
+      new SocialMediaController("representanteSocial");
     });
     </script>
 {% endblock %}
