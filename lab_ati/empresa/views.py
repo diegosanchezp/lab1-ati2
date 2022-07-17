@@ -13,15 +13,15 @@ from lab_ati.utils.social_media import add_social_media
 from django.urls import reverse
 
 # Create your views here.
-class EmpresasListView(LoginRequiredMixin, TemplateView):
+class EmpresasListView(ListView):
 
+    template_name = "pages/business/list.html"
     model = Empresa
-    template_name = "empresa/empresa_list.html"
+    paginate_by = 10
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['data'] = serializers.serialize("json", Empresa.objects.all())
-        return context
+    def get_queryset(self):
+        queryset = Empresa.objects.all()
+        return queryset
 
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"
