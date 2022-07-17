@@ -122,7 +122,11 @@ class EditBusinessView(UpdateView):
         )
         context["editing_social"] = True
         return context
-    
+
+
+class BusinessDetailsView(DetailView):
+    template_name = "pages/business/detail.html"
+    model = Empresa
 
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"

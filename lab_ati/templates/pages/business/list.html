@@ -47,7 +47,7 @@
                                     {{ business.id_tributaria }}
                                 </td>
                                 <td class="d-flex">
-                                    <a href="#">
+                                    <a href="{% url 'empresa:business-details' pk=business.id %}">
                                         <button type="button" class="me-2 btn btn-info">
                                             <i class="bi bi-search"></i>
                                         </button>
