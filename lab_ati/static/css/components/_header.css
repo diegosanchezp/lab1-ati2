@@ -3,7 +3,7 @@
 }
 .custom-header__menu{
     list-style: none;
-    max-width: 400px;
+    max-width: max-content;
 }
 .custom-header__menu-item{
     cursor: pointer;
