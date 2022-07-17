@@ -38,8 +38,21 @@ class EmpresaABC(DirABC):
 class Empresa(EmpresaABC):
     servicio_ofrecido = models.TextField(_("Servicio que le ofrecimos"))
     servicio_proporciona = models.TextField(_("Servicio que proporciona"))
-    whatsapp=models.TextField(_("Whatsapp"))
-    telefono=models.TextField(_("Teléfono"))
+    whatsapp=models.TextField(
+        _("Whatsapp"),
+        validators=[validators.RegexValidator(
+            regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
+            message=_('El campo debe tener el formato de teléfono, por ejemplo: +58-424 1824687'),
+            code='tlf_whatsapp_invalido'
+        )]
+    )
+    telefono=models.TextField(_("Teléfono"),
+        validators=[validators.RegexValidator(
+            regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
+            message=_('El campo debe tener el formato de teléfono, por ejemplo: +58-424 1824687'),
+            code='tlf_invalido'
+        )]
+    )
     curso_interes=models.TextField(_("Curso de interés"))
     frecuencia=models.TextField(_("Frecuencia con la que desea mantenerse informado"))
     cliente_empresa = models.ForeignKey(

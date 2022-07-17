@@ -107,6 +107,14 @@ class EditBusinessView(UpdateView):
         res = super().form_valid(form)
         return res
 
+    def form_invalid(self, form):
+        return self.render_to_response(
+            self.get_context_data(
+                form=form,
+                socialm_formset=self.social_media_formset
+            )
+        )
+
     def media_form_invalid(self, form):
         return self.render_to_response(
             self.get_context_data(

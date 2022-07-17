@@ -17,14 +17,14 @@
             <section class="col input-group">
                 <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.nombre.label_tag }}</label>
                 {{ form.nombre }}
-                {% for error in for.nombre.errors %}
+                {% for error in form.nombre.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.id_tributaria.id_for_label }}" class="input-group-text">{{ form.id_tributaria.label_tag }}</label>
                 {{ form.id_tributaria }}
-                {% for error in for.id_tributaria.errors %}
+                {% for error in form.id_tributaria.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
@@ -34,14 +34,14 @@
             <section class="col input-group">
                 <label for="{{ form.pais.id_for_label }}" class="input-group-text">{{ form.pais.label_tag }}</label>
                 {{ form.pais }}
-                {% for error in for.pais.errors %}
+                {% for error in form.pais.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.ciudad.id_for_label }}" class="input-group-text">{{ form.ciudad.label_tag }}</label>
                 {{ form.ciudad }}
-                {% for error in for.ciudad.errors %}
+                {% for error in form.ciudad.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
@@ -51,7 +51,7 @@
             <section class="col input-group">
                 <label for="{{ form.direccion.id_for_label }}" class="input-group-text">{{ form.direccion.label_tag }}</label>
                 {{ form.direccion }}
-                {% for error in for.direccion.errors %}
+                {% for error in form.direccion.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
@@ -61,32 +61,36 @@
             <section class="col input-group">
                 <label for="{{ form.email.id_for_label }}" class="input-group-text">{{ form.email.label_tag }}</label>
                 {{ form.email }}
-                {% for error in for.email.errors %}
+                {% for error in form.email.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.web_site.id_for_label }}" class="input-group-text">{{ form.web_site.label_tag }}</label>
                 {{ form.web_site }}
-                {% for error in for.web_site.errors %}
+                {% for error in form.web_site.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
         </section>
 
         <section class="row">
-            <section class="col input-group">
-                <label for="{{ form.telefono.id_for_label }}" class="input-group-text">{{ form.telefono.label_tag }}</label>
-                {{ form.telefono }}
-                {% for error in for.telefono.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.telefono.label_tag }}</label>
+                    {{ form.telefono }}
+                </section>
+                {% for error in form.telefono.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
-            <section class="col input-group">
-                <label for="{{ form.whatsapp.id_for_label }}" class="input-group-text">{{ form.whatsapp.label_tag }}</label>
-                {{ form.whatsapp }}
-                {% for error in for.whatsapp.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+            <section class="col">
+                <section class="input-group">
+                    <label class="input-group-text">{{ form.whatsapp.label_tag }}</label>
+                    {{ form.whatsapp }}
+                </section>
+                {% for error in form.whatsapp.errors %}
+                    <span class="text-danger text-xs mx-2">{{ error }}</span>
                 {% endfor %}
             </section>
         </section>
@@ -95,14 +99,14 @@
             <section class="col input-group">
                 <label for="{{ form.servicio_ofrecido.id_for_label }}" class="input-group-text">{{ form.servicio_ofrecido.label_tag }}</label>
                 {{ form.servicio_ofrecido }}
-                {% for error in for.servicio_ofrecido.errors %}
+                {% for error in form.servicio_ofrecido.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.servicio_proporciona.id_for_label }}" class="input-group-text">{{ form.servicio_proporciona.label_tag }}</label>
                 {{ form.servicio_proporciona }}
-                {% for error in for.servicio_proporciona.errors %}
+                {% for error in form.servicio_proporciona.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
@@ -112,14 +116,14 @@
             <section class="col input-group">
                 <label for="{{ form.frecuencia.id_for_label }}" class="input-group-text">{{ form.frecuencia.label_tag }}</label>
                 {{ form.frecuencia }}
-                {% for error in for.frecuencia.errors %}
+                {% for error in form.frecuencia.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.curso_interes.id_for_label }}" class="input-group-text">{{ form.curso_interes.label_tag }}</label>
                 {{ form.curso_interes }}
-                {% for error in for.curso_interes.errors %}
+                {% for error in form.curso_interes.errors %}
                     <span class="invalid-feedback">{{ error }}</span>
                 {% endfor %}
             </section>
