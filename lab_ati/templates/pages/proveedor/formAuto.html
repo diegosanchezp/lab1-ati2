@@ -1,11 +1,13 @@
 {% if data.update == True %}
 <form
+  class="container d-grid gap-3 pb-4"
   enctype="multipart/form-data"
   action="/proveedor/modificar?proveedor={{data.proveedor.id}}" 
   method="post"
 >
 {% else %}
 <form
+  class="container d-grid gap-3 pb-4"
   enctype="multipart/form-data"
   action="/proveedor/crear?empresa={{data.empresa.id}}" 
   method="post"
@@ -17,37 +19,42 @@
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
     {% if campo.label|slice:"-13:" != "representante" %}
-    <div class="mb-3">
-      <label class="form-label">{{campo.label}}</label>
-      <input
+    <section class="row mb-3">
+      <section class="col input-group">
+        <label class="input-group-text">{{campo.label}}</label>
+        <input
         type="{{campo.field.widget.input_type}}"
         class="form-control"
         name="{{campo.name}}"
         placeholder="{{campo.label}}"
         value="{{data.proveedor|get_item:campo.name}}"
       />
-    </div>
+      </section>
+    </section>
+
     {% endif %}
     {% endif %}
     {% endfor %}
     <p>Redes sociales</p>
     {% include "common/social_media_form.html" with socialm_formset=data.socialMedia%}
-
+    <br/>
     <p class="fw-bold fs-5">Información del representante</p>
 
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
     {% if campo.label|slice:"-13:" == "representante"%} 
-    <div class="mb-3">
-      <label class="form-label">{{campo.label}}</label>
-      <input
+    <section class="row mb-3">
+      <section class="col input-group">
+        <label class="input-group-text">{{campo.label}}</label>
+        <input
         type="{{campo.field.widget.input_type}}"
         class="form-control"
         name="{{campo.name}}"
         placeholder="{{campo.label}}"
         value="{{data.proveedor|get_item:campo.name}}"
       />
-    </div>
+      </section>
+    </section>
     {% endif %}
     {% endif %}
     {% endfor %}
