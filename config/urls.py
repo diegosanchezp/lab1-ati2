@@ -20,7 +20,7 @@ urlpatterns = [
     path("users/", include("lab_ati.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("clientes/", include("lab_ati.cliente.urls")),
+    path("business/", include("lab_ati.cliente.urls")),
     # Business urls
     # Employee urls
     path("business/", include("empresa.urls"))
