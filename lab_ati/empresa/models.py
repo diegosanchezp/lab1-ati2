@@ -60,7 +60,7 @@ class Empresa(EmpresaABC):
         null=True,
         blank=True,
         on_delete=models.CASCADE,
-        verbose_name=_("Cliente tipo empresa"),
+        verbose_name=_("Cliente de empresa"),
         related_name="clientes_empresa",
     )
 

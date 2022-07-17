@@ -19,6 +19,9 @@ class CreateBusinessForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args,**kwargs)
         # Set custom widget attr
+        if(self.instance):
+            self.fields['cliente_empresa'].queryset = Empresa.objects.exclude(id = self.instance.id)
+        
         for field in  self.fields.values():
             if isinstance(field, forms.fields.CharField):
                 if isinstance(field.widget, forms.widgets.Textarea):
