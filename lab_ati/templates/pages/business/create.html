@@ -126,6 +126,19 @@
         </section>
 
         <section class="row">
+            <section class="col input-group">
+                <h5>Redes sociales</h5>
+                <ul class="list-group list-group w-100" id="socialNetworkList" ></ul>
+            </section>
+        </section>
+
+        <section class="row">
+            <section class="col input-group">
+                {% include "common/social_media_form.html" with socialm_formset=socialm_formset%}
+            </section>
+        </section>
+
+        <section class="row">
             <section class="col d-flex">
                 <button class="btn btn-primary ms-auto">
                     {% if object == None %}
@@ -138,4 +151,12 @@
         </section>
     </form>
 </section>
+{% endblock %}
+
+{% block inline_javascript %}
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            new SocialMediaController();
+        });
+    </script>
 {% endblock %}

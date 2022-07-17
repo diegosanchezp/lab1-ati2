@@ -42,6 +42,37 @@ class CreateBusinessView(CreateView):
             }
         )
 
+    def post(self, request, *args, **kwargs):
+        self.object = None
+
+        self.social_media_formset = SocialMediaFormset(data = self.request.POST)
+        
+        #Call parent class post
+        return super().post(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        if not self.social_media_formset.is_valid():
+            return self.form_invalid(form)
+        
+        res = super().form_valid(form)
+        # Add social media to Empresa
+        add_social_media(self.object, self.social_media_formset)
+        return res
+
+    def form_invalid(self, form):
+        return self.render_to_response(
+            self.get_context_data(
+                form=form,
+                socialm_formset=self.social_media_formset
+            )
+        )
+
+    def get_context_data(self, **kwargs):
+        # Queryset vacio porque vamos a crear una empresa nuevo
+        context = super().get_context_data(**kwargs)
+        context["socialm_formset"] = SocialMediaFormset(queryset=SocialMedia.objects.none())
+        return context
+
 class EditBusinessView(UpdateView):
     template_name = "pages/business/create.html"
     model = Empresa
@@ -55,6 +86,42 @@ class EditBusinessView(UpdateView):
                 "pk": self.object.pk
             }
         )
+    
+    def post(self, request, *args, **kwargs):
+
+        self.object = self.get_object()
+        self.social_media_formset = SocialMediaFormset(
+            data=self.request.POST,
+            queryset=self.object.redes_sociales.all()
+        )
+        return super().post(request, *args, **kwargs)
+
+    def form_valid(self, form):
+
+        if not self.social_media_formset.is_valid():
+            return self.media_form_invalid(form)
+
+        # Update and add social media
+        add_social_media(self.object, self.social_media_formset)
+
+        res = super().form_valid(form)
+        return res
+
+    def media_form_invalid(self, form):
+        return self.render_to_response(
+            self.get_context_data(
+                form=form,
+                socialm_formset=self.social_media_formset
+            )
+        )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["socialm_formset"] = SocialMediaFormset(
+            queryset=self.object.redes_sociales.all()
+        )
+        context["editing_social"] = True
+        return context
     
 
 class CreateEmployeeView(CreateView):
