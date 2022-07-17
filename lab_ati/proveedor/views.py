@@ -35,12 +35,15 @@ def createProveedor(request):
     )
     #socialMediaRepresentanteForm = SocialMediaFormset(queryset=SocialMedia.objects.none())
     #print(proveedorSocialMedia)
-    context["data"] = { 
-      "empresa":empresa,
-      "update":False, 
-      "formulario":formularioProveedor,
-      "socialMedia" : proveedorSocialMedia,
-      "socialMediaRepresentante": socialMediaRepresentanteForm
+    context = {
+      "data":{
+        "empresa":empresa,
+        "update":False, 
+        "formulario":formularioProveedor,
+        "socialMedia" : proveedorSocialMedia,
+        "socialMediaRepresentante": socialMediaRepresentanteForm
+      },
+      "list_link":'/proveedor?empresa='+str(empresaId)
       }
     return render(request,'pages/proveedor/create-update.html', context)
 
@@ -56,7 +59,6 @@ def createProveedor(request):
     social_media_formset = SocialMediaFormset(data=request.POST, prefix="proveedorSocial")
     redes_representante_formset = SocialMediaFormset(data=request.POST, prefix="representanteSocial")
     #print(social_media_formset)
-    breakpoint()
     if formularioProveedor.is_valid() and social_media_formset.is_valid() and redes_representante_formset.is_valid():
       print('is valid!')
       proveedorSaved = formularioProveedor.save()
@@ -94,7 +96,9 @@ def updateProveedor(request):
         "formulario":formularioProveedor,
         "socialMedia":socialMediaForm,
         "socialMediaRepresentante": socialMediaRepresentanteForm
-      }
+      },
+      "editing_social":True,
+      "list_link":'/proveedor?empresa='+str(proveedor.empresa.id)
     }
     return render(request,'pages/proveedor/create-update.html',context)
   elif request.method == 'POST':
@@ -112,22 +116,21 @@ def updateProveedor(request):
     if formularioProveedor.is_valid():
       print('is valid!')
       proveedorSaved = formularioProveedor.save()
-      breakpoint()
       social_media_formset = SocialMediaFormset(
-          prefix="proveedorSocial",
-          data=request.POST,
-          queryset=proveedorSaved.redes_proveedor.all()
+        prefix="proveedorSocial",
+        data=request.POST,
+        queryset=proveedorSaved.redes_proveedor.all()
       )
       socialMediaRepresentanteForm = SocialMediaFormset(
-          queryset=proveedorSaved.redes_representante.all(),
-          data=request.POST,
-          prefix="representanteSocial"
+        queryset=proveedorSaved.redes_representante.all(),
+        data=request.POST,
+        prefix="representanteSocial"
       )
 
       if social_media_formset.is_valid():
         add_social_media(proveedorSaved,social_media_formset, belongs_to="redes_proveedor")
       if socialMediaRepresentanteForm.is_valid():
-        add_social_media(proveedorSaved,social_media_formset, belongs_to="redes_representante")
+        add_social_media(proveedorSaved,socialMediaRepresentanteForm, belongs_to="redes_representante")
     return redirect('/proveedor?empresa='+empresaId)
 
 
@@ -155,9 +158,6 @@ def listProveedor(request):
   context["empresa"] = {"empresa":empresa, "id":empresaId}
   return render(request,'pages/proveedor/list.html',context)
   
-
-
-
 def deleteProveedor(request):
   proveedorId = request.GET.get('proveedor') 
   if(proveedorId == None):
@@ -176,10 +176,19 @@ def seeProveedor(request):
   proveedor = Proveedor.objects.get(id=proveedorId)
   if(proveedor == None):
     return render(request,'pages/404.html')
-  socialMediaForm = SocialMediaFormset(queryset=proveedor.redes_sociales.all())
+  socialMediaForm  = SocialMediaFormset(
+    prefix="proveedorSocial",
+    queryset=proveedor.redes_proveedor.all()
+  )
+  socialMediaRepresentanteForm = SocialMediaFormset(
+    prefix="representanteSocial",
+    queryset=proveedor.redes_representante.all(),
+  )
   context = {
     "proveedor" :proveedor,
-    "socialMedia":socialMediaForm
+    "socialMedia":socialMediaForm,
+    "socialMediaRepresentante":socialMediaRepresentanteForm,
+    "list_link":'/proveedor?empresa='+str(proveedor.empresa.id)
   }
   return render(request,'pages/proveedor/read.html', context)
 
