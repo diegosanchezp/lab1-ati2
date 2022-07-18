@@ -300,6 +300,9 @@ class DeleteEmployeeView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['business_id'] = self.kwargs['business_id']
+
+        context["list_link"] = reverse("empresa:list-employee", kwargs={"business_id": context["business_id"]} )
+        context["back_link"] = context["list_link"]
         return context
 
     def get_success_url(self):
@@ -312,6 +315,9 @@ class DetailEmployeeView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['business_id'] = self.kwargs['business_id']
+
+        context["list_link"] = reverse("empresa:list-employee", kwargs={"business_id": context["business_id"]} )
+        context["back_link"] = context["list_link"]
         return context
 
 
