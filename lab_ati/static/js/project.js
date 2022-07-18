@@ -1,8 +1,9 @@
 /* Project specific Javascript goes here. */
 class SocialMediaController {
-  constructor() {
-    this.socialContainer = document.getElementById("social-container");
-    this.totalFormsEl = document.getElementById("id_form-TOTAL_FORMS");
+  constructor(idForm) {
+    this.idForm = idForm || "form";
+    this.socialContainer = document.getElementById(this.idForm);
+    this.totalFormsEl = document.getElementById(`id_${this.idForm}-TOTAL_FORMS`);
     this.totalForms = parseInt(this.totalFormsEl.value);
     this.templateRow = this.socialContainer.querySelector(".row:last-child"); // Last Row
     // Setup event listeners for all rows
@@ -39,11 +40,11 @@ class SocialMediaController {
     let newRow = this.templateRow.cloneNode(true);
 
     //Regex to find all instances of the form number
-    let formRegex = RegExp(`form-(\\d){1}-`, "g");
+    let formRegex = RegExp(`${this.idForm}-(\\d){1}-`, "g");
 
     newRow.innerHTML = newRow.innerHTML.replace(
       formRegex,
-      `form-${this.totalForms}-`
+      `${this.idForm}-${this.totalForms}-`
     ); //Update the new form to have the correct form number
 
     this.setupEvents(newRow);

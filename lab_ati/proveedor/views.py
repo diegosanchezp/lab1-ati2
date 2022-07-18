@@ -25,15 +25,25 @@ def createProveedor(request):
     #print(empresa)
     formularioProveedor = ProveedorForm(request.POST or request.GET)
     context = {}
-    proveedorSocialMedia = SocialMediaFormset(queryset=SocialMedia.objects.none())
+    proveedorSocialMedia = SocialMediaFormset(
+        prefix="proveedorSocial",
+        queryset=SocialMedia.objects.none()
+    )
+    socialMediaRepresentanteForm = SocialMediaFormset(
+        queryset=SocialMedia.objects.none(),
+        prefix="representanteSocial"
+    )
     #socialMediaRepresentanteForm = SocialMediaFormset(queryset=SocialMedia.objects.none())
     #print(proveedorSocialMedia)
-    context["data"] = { 
-      "empresa":empresa,
-      "update":False, 
-      "formulario":formularioProveedor,
-      "socialMedia" : proveedorSocialMedia,
-      #"socialMediaRepresentante" : socialMediaRepresentanteForm
+    context = {
+      "data":{
+        "empresa":empresa,
+        "update":False, 
+        "formulario":formularioProveedor,
+        "socialMedia" : proveedorSocialMedia,
+        "socialMediaRepresentante": socialMediaRepresentanteForm
+      },
+      "list_link":'/proveedor?empresa='+str(empresaId)
       }
     return render(request,'pages/proveedor/create-update.html', context)
 
@@ -46,12 +56,16 @@ def createProveedor(request):
       return render(request,'404.html')
     formularioProveedor = ProveedorForm(request.POST or None)
     #print(formularioProveedor)
-    social_media_formset = SocialMediaFormset(data=request.POST)
+    social_media_formset = SocialMediaFormset(data=request.POST, prefix="proveedorSocial")
+    redes_representante_formset = SocialMediaFormset(data=request.POST, prefix="representanteSocial")
     #print(social_media_formset)
-    if formularioProveedor.is_valid() and social_media_formset.is_valid():
+    if formularioProveedor.is_valid() and social_media_formset.is_valid() and redes_representante_formset.is_valid():
       print('is valid!')
       proveedorSaved = formularioProveedor.save()
-      add_social_media(proveedorSaved,social_media_formset)
+      # Añadir las redes sociales del proveedor
+      add_social_media(proveedorSaved,social_media_formset, belongs_to="redes_proveedor")
+      # Añadir las redes sociales del representante
+      add_social_media(proveedorSaved, redes_representante_formset, belongs_to="redes_representante")
     return redirect('/proveedor?empresa='+empresaId)
     
 def updateProveedor(request):
@@ -65,7 +79,15 @@ def updateProveedor(request):
       return render(request,'404.html') 
     print(proveedor)
     formularioProveedor = ProveedorForm(request.POST or request.GET)
-    socialMediaForm = SocialMediaFormset(queryset=proveedor.redes_sociales.all())
+    socialMediaForm  = SocialMediaFormset(
+        prefix="proveedorSocial",
+        queryset=proveedor.redes_proveedor.all()
+    )
+    socialMediaRepresentanteForm = SocialMediaFormset(
+        prefix="representanteSocial",
+        queryset=proveedor.redes_representante.all(),
+    )
+
     context = {
       "data":{
         "proveedor":proveedor,
@@ -73,7 +95,10 @@ def updateProveedor(request):
         "update":True,
         "formulario":formularioProveedor,
         "socialMedia":socialMediaForm,
-      }
+        "socialMediaRepresentante": socialMediaRepresentanteForm
+      },
+      "editing_social":True,
+      "list_link":'/proveedor?empresa='+str(proveedor.empresa.id)
     }
     return render(request,'pages/proveedor/create-update.html',context)
   elif request.method == 'POST':
@@ -86,15 +111,26 @@ def updateProveedor(request):
       return render(request,'404.html')
     print(oldProveedor)
     formularioProveedor = ProveedorForm(request.POST, instance=oldProveedor)
-    
     print(formularioProveedor)
     empresaId = str(oldProveedor.empresa.id)
     if formularioProveedor.is_valid():
       print('is valid!')
       proveedorSaved = formularioProveedor.save()
-      social_media_formset = SocialMediaFormset(data=request.POST, queryset=proveedorSaved.redes_sociales.all())
+      social_media_formset = SocialMediaFormset(
+        prefix="proveedorSocial",
+        data=request.POST,
+        queryset=proveedorSaved.redes_proveedor.all()
+      )
+      socialMediaRepresentanteForm = SocialMediaFormset(
+        queryset=proveedorSaved.redes_representante.all(),
+        data=request.POST,
+        prefix="representanteSocial"
+      )
+
       if social_media_formset.is_valid():
-        add_social_media(proveedorSaved,social_media_formset)
+        add_social_media(proveedorSaved,social_media_formset, belongs_to="redes_proveedor")
+      if socialMediaRepresentanteForm.is_valid():
+        add_social_media(proveedorSaved,socialMediaRepresentanteForm, belongs_to="redes_representante")
     return redirect('/proveedor?empresa='+empresaId)
 
 
@@ -122,9 +158,6 @@ def listProveedor(request):
   context["empresa"] = {"empresa":empresa, "id":empresaId}
   return render(request,'pages/proveedor/list.html',context)
   
-
-
-
 def deleteProveedor(request):
   proveedorId = request.GET.get('proveedor') 
   if(proveedorId == None):
@@ -143,10 +176,19 @@ def seeProveedor(request):
   proveedor = Proveedor.objects.get(id=proveedorId)
   if(proveedor == None):
     return render(request,'pages/404.html')
-  socialMediaForm = SocialMediaFormset(queryset=proveedor.redes_sociales.all())
+  socialMediaForm  = SocialMediaFormset(
+    prefix="proveedorSocial",
+    queryset=proveedor.redes_proveedor.all()
+  )
+  socialMediaRepresentanteForm = SocialMediaFormset(
+    prefix="representanteSocial",
+    queryset=proveedor.redes_representante.all(),
+  )
   context = {
     "proveedor" :proveedor,
-    "socialMedia":socialMediaForm
+    "socialMedia":socialMediaForm,
+    "socialMediaRepresentante":socialMediaRepresentanteForm,
+    "list_link":'/proveedor?empresa='+str(proveedor.empresa.id)
   }
   return render(request,'pages/proveedor/read.html', context)
 
