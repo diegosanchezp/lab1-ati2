@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-18 00:10+0000\n"
+"POT-Creation-Date: 2022-07-18 00:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgstr "Tributary identification number"
 
 #: lab_ati/empresa/models.py:27
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: lab_ati/empresa/models.py:28 lab_ati/templates/pages/proveedor/read.html:32
 msgid "Dirección"
@@ -185,31 +185,31 @@ msgstr "Number phone"
 
 #: lab_ati/proveedor/models.py:10
 msgid "Nombre del representante"
-msgstr "Name"
+msgstr "Representatives name"
 
 #: lab_ati/proveedor/models.py:11
 msgid "Cargo del representante"
-msgstr "Work position"
+msgstr "Representatives work position"
 
 #: lab_ati/proveedor/models.py:12
 msgid "Correo del representante"
-msgstr "Email"
+msgstr "Representatives email"
 
 #: lab_ati/proveedor/models.py:13
 msgid "Correo personal del representante"
-msgstr "Personal email"
+msgstr "Representatives personal email"
 
 #: lab_ati/proveedor/models.py:14
 msgid "Teléfono celular del representante"
-msgstr "Number phone"
+msgstr "Representatives number phone"
 
 #: lab_ati/proveedor/models.py:15
 msgid "Teléfono local del representante"
-msgstr "Local number phone"
+msgstr "Representatives local number phone"
 
 #: lab_ati/proveedor/models.py:16
 msgid "Pais de residencia de representante"
-msgstr "Country of residence"
+msgstr "Representatives country of residence"
 
 #: lab_ati/templates/account/account_inactive.html:5
 #: lab_ati/templates/account/account_inactive.html:8
@@ -576,18 +576,18 @@ msgstr "Provider registration for company:"
 msgid "Información del proveedor"
 msgstr "Provider information"
 
-#: lab_ati/templates/pages/proveedor/formAuto.html:39
-#: lab_ati/templates/pages/proveedor/formAuto.html:63
+#: lab_ati/templates/pages/proveedor/formAuto.html:40
+#: lab_ati/templates/pages/proveedor/formAuto.html:64
 #: lab_ati/templates/pages/proveedor/read.html:49
 #: lab_ati/templates/pages/proveedor/read.html:105
 msgid "Redes sociales"
 msgstr "Social Media"
 
-#: lab_ati/templates/pages/proveedor/formAuto.html:42
+#: lab_ati/templates/pages/proveedor/formAuto.html:43
 msgid "Información del representante"
 msgstr "Representative information"
 
-#: lab_ati/templates/pages/proveedor/formAuto.html:83
+#: lab_ati/templates/pages/proveedor/formAuto.html:84
 msgid "Guardar"
 msgstr "Save"
 
