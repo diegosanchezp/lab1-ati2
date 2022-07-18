@@ -21,6 +21,7 @@ urlpatterns = [
     path("proveedor/", include("lab_ati.proveedor.urls")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("business/", include("lab_ati.cliente.urls")),
     # Business urls
     # Employee urls
     path("business/", include("empresa.urls"))
