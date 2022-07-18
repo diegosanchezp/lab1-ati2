@@ -23,8 +23,8 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     path("business/", include("lab_ati.cliente.urls")),
     # Business urls
+    path("business/", include("lab_ati.empresa.urls", namespace="business")),
     # Employee urls
-    path("business/", include("empresa.urls"))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
