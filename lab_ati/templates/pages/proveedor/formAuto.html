@@ -1,3 +1,4 @@
+{% load i18n %}
 {% if data.update == True %}
 <form
   class="container d-grid gap-3 pb-4"
@@ -15,7 +16,7 @@
 {% endif %}
   {% csrf_token %}
   <div class="section-box">
-    <p class="fw-bold fs-5">Información del proveedor</p>
+    <p class="fw-bold fs-5">{% trans 'Información del proveedor' %}</p>
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
     {% if campo.label|slice:"-13:" != "representante" %}
@@ -35,10 +36,10 @@
     {% endif %}
     {% endif %}
     {% endfor %}
-    <p>Redes sociales</p>
+    <p>{% trans 'Redes sociales' %}</p>
     {% include "common/social_media_form.html" with socialm_formset=data.socialMedia%}
     <br/>
-    <p class="fw-bold fs-5">Información del representante</p>
+    <p class="fw-bold fs-5">{% trans 'Información del representante' %}</p>
 
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
@@ -59,10 +60,8 @@
     {% endif %}
     {% endfor %}
   
-    <!--
-    <p>Redes sociales</p>
+    <p>{% trans 'Redes sociales' %}</p>
     {% include "common/social_media_form.html" with socialm_formset=data.socialMediaRepresentante%}
-    -->
     <div class="mb-3" style="display: none;">
       <label class="form-label">Empresa</label>
       <input
@@ -81,6 +80,6 @@
   
 
   <div class="d-grid gap-2 col-6 mx-auto form-button-box">
-    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-primary" type="submit">{% trans "Guardar" %}</button>
   </div>
 </form>

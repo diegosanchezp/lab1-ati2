@@ -3,7 +3,6 @@
 {% block content %}
 
 <section class="general-container ">
-  {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link="/proveedor?" %}
   <h2 class="text-center pb-4">{% trans 'Lista de proveedores de' %} {{empresa.empresa.nombre}}</h2>
   <section class="container d-grid gap-3 pb-4">
     <section class="row">
