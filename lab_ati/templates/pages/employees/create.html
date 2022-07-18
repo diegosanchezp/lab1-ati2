@@ -1,5 +1,6 @@
 {% extends "../../base.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
 <section class="general-container w-100">
@@ -19,14 +20,20 @@
                 <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.nombre.label_tag }}</label>
                 {{ form.nombre }}
                 {% for error in form.nombre.errors %}
-                    <span class="invalid-feedback">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
             <section class="col input-group">
                 <label for="{{ form.nombre.id_for_label }}" class="input-group-text">{{ form.apellido.label_tag }}</label>
                 {{ form.apellido }}
                 {% for error in form.nombre.errors %}
-                    <span class="invalid-feedback">{{ apellido }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
         </section>
@@ -39,7 +46,10 @@
                     {{ form.cargo }}
                 </section>
                 {% for error in form.cargo.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
 
@@ -48,9 +58,18 @@
                     <label for="{{ form.ci.id_for_label }}" class="input-group-text">{{ form.ci.label_tag }}</label>
                     {{ form.ci }}
                 </section>
-                {% for error in form.ci.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
-                {% endfor %}
+                <section class="d-flex flex-column">
+                    <span class="text-info text-xs">
+                        <i class="bi bi-info-circle"></i>
+                        {% trans 'Formatos válidos de número de cédula o pasaporte: V-12.345.678, ABC123DEF4' %}
+                    </span>
+                    {% for error in form.ci.errors %}
+                        <span class="text-danger text-xs">
+                            <i class="bi bi-exclamation-octagon"></i>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </section>
             </section>
         </section>
 
@@ -61,7 +80,10 @@
                     {{ form.modalidad_contratacion }}
                 </section>
                 {% for error in form.modalidad_contratacion.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
             <section class="col">
@@ -70,7 +92,10 @@
                     {{ form.email_emp }}
                 </section>
                 {% for error in form.email_emp.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
         </section>
@@ -82,7 +107,10 @@
                     {{ form.email_p }}
                 </section>
                 {% for error in form.email_p.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
             <section class="col">
@@ -90,9 +118,18 @@
                     <label class="input-group-text">{{ form.tlf_local.label_tag }}</label>
                     {{ form.tlf_local }}
                 </section>
-                {% for error in form.tlf_local.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
-                {% endfor %}
+                <section class="d-flex flex-column">
+                    <span class="text-info text-xs">
+                        <i class="bi bi-info-circle"></i>
+                        {% trans 'Formatos válidos de número de teléfono: +58-0212-123-1234, +58-0212-123-12-34, +5802121231234' %}
+                    </span>
+                    {% for error in form.tlf_local.errors %}
+                        <span class="text-danger text-xs">
+                            <i class="bi bi-exclamation-octagon"></i>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </section>
             </section>
         </section>
 
@@ -102,9 +139,18 @@
                     <label class="input-group-text">{{ form.tlf_celular.label_tag }}</label>
                     {{ form.tlf_celular }}
                 </section>
-                {% for error in form.tlf_celular.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
-                {% endfor %}
+                <section class="d-flex flex-column">
+                    <span class="text-info text-xs">
+                        <i class="bi bi-info-circle"></i>
+                        {% trans 'Formatos válidos de número de teléfono: +58-0212-123-1234, +58-0212-123-12-34, +5802121231234' %}
+                    </span>
+                    {% for error in form.tlf_celular.errors %}
+                        <span class="text-danger text-xs">
+                            <i class="bi bi-exclamation-octagon"></i>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </section>
             </section>
             <section class="col">
                 <section class="input-group">
@@ -112,7 +158,10 @@
                     {{ form.ciudad }}
                 </section>
                 {% for error in form.ciudad.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
         </section>
@@ -124,7 +173,10 @@
                     {{ form.pais }}
                 </section>   
                 {% for error in form.pais.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
+                    <span class="text-danger text-xs">
+                        <i class="bi bi-exclamation-octagon"></i>
+                        {{ error }}
+                    </span>
                 {% endfor %}
             </section>
             

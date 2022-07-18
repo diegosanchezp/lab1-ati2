@@ -1,4 +1,5 @@
 {{ socialm_formset.management_form }}
+{% load i18n %}
 
 <section class="d-grid">
   <section class="row">
@@ -15,11 +16,11 @@
         {{ socialm_form.id }}
         <section class="row" id="">
           <section class="col input-group">
-            <label for="{{ socialm_form.nombre.id_for_label }}" class="input-group-text">Red social</label>
+            <label for="{{ socialm_form.nombre.id_for_label }}" class="input-group-text">{% trans 'Red social' %}</label>
             {{ socialm_form.nombre }}
           </section>
           <section class="col input-group">
-            <label for="{{ socialm_form.valor.id_for_label }}" class="input-group-text">Valor</label>
+            <label for="{{ socialm_form.valor.id_for_label }}" class="input-group-text">{% trans 'Valor' %}</label>
             {{ socialm_form.valor }}
           </section>
           <section class="col input-group btn-group">

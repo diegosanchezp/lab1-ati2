@@ -71,6 +71,9 @@ class SocialMedia(models.Model):
 
 class Empleado(DirABC):
 
+    tlf_regex = '^\+?([0-9]{1,3}|[1]\-?[0-9]{3})?\-?([0-9]{1,4})\-?([0-9]{3}\-?[0-9]{2}\-?[0-9]{2})$'
+    ci_regex = '^(([A-Z]-)[0-9]{1,3}\.?[0-9]{1,3}\.?[0-9]{1,3})$|^([0-9A-Z]{10})$'
+
     class Modalidad(models.TextChoices):
         FIJO='FIJO', _('Fijo')
         HONORARIO_PROFESIONALES='HP', _('Honorario profesionales')
@@ -78,8 +81,8 @@ class Empleado(DirABC):
     nombre = models.TextField(_("Nombre"))
     apellido = models.TextField(_("Apellido"))
     ci = models.TextField(_("Cédula o nro pasaporte"), validators=[validators.RegexValidator(
-                                    regex='^(0|[1-9][0-9]*)$',
-                                    message=_('El campo debe ser un númérico'),
+                                    regex=ci_regex,
+                                    message=_('El campo debe ser una cédula de identidad o número de pasaporte'),
                                     code='ci_invalido'
                                 )
                             ])
@@ -102,13 +105,13 @@ class Empleado(DirABC):
     tlf_celular=models.TextField(
         _("Teléfono celular"),
         validators=[validators.RegexValidator(
-                                    regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
+                                    regex=tlf_regex,
                                     message=_('El campo debe ser un número de teléfono'),
                                     code='tlf_celular_invalido'
                                 )
                             ])                             
     tlf_local=models.TextField(_("Teléfono local"), validators=[validators.RegexValidator(
-                                    regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
+                                    regex=tlf_regex,
                                     message=_('El campo debe ser un número de teléfono'),
                                     code='tlf_local_invalido'
                                 )
