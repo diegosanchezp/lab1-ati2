@@ -23,7 +23,7 @@ def createProveedor(request):
     if(empresa == None):
       return render(request,'404.html')
     #print(empresa)
-    formularioProveedor = ProveedorForm(request.POST or request.GET)
+    formularioProveedor = ProveedorForm(request.GET)
     context = {}
     proveedorSocialMedia = SocialMediaFormset(
         prefix="proveedorSocial",
@@ -54,19 +54,20 @@ def createProveedor(request):
     empresa = Empresa.objects.get(id=empresaId)
     if(empresa == None):
       return render(request,'404.html')
-    formularioProveedor = ProveedorForm(request.POST or None)
+    formularioProveedor = ProveedorForm(request.POST)
     #print(formularioProveedor)
     social_media_formset = SocialMediaFormset(data=request.POST, prefix="proveedorSocial")
     redes_representante_formset = SocialMediaFormset(data=request.POST, prefix="representanteSocial")
     #print(social_media_formset)
     if formularioProveedor.is_valid() and social_media_formset.is_valid() and redes_representante_formset.is_valid():
-      print('is valid!')
+      #print('is valid!')
       proveedorSaved = formularioProveedor.save()
       # Añadir las redes sociales del proveedor
       add_social_media(proveedorSaved,social_media_formset, belongs_to="redes_proveedor")
       # Añadir las redes sociales del representante
       add_social_media(proveedorSaved, redes_representante_formset, belongs_to="redes_representante")
-    return redirect('/proveedor?empresa='+empresaId)
+      return redirect('/proveedor?empresa='+empresaId)
+    return redirect('/proveedor/crear?empresa='+empresaId)
     
 def updateProveedor(request):
   if request.method == 'GET':

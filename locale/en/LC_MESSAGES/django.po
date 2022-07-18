@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-17 23:11-0400\n"
+"POT-Creation-Date: 2022-07-18 19:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,13 +189,13 @@ msgstr "The field must be a phone number"
 msgid "Teléfono local"
 msgstr "Local number phone"
 
-#: lab_ati/empresa/views.py:158 lab_ati/empresa/views.py:227
+#: lab_ati/empresa/views.py:164 lab_ati/empresa/views.py:234
 msgid "La empresa no existe"
 msgstr "The company doesn't exist"
 
 #: lab_ati/proveedor/models.py:9
 msgid "Teléfono del proveedor"
-msgstr ""
+msgstr "Number phone of provider"
 
 #: lab_ati/proveedor/models.py:10
 msgid "Nombre del representante"
@@ -219,7 +219,7 @@ msgstr "Representatives number phone"
 
 #: lab_ati/proveedor/models.py:15
 msgid "Teléfono local del representante"
-msgstr "Representative local phone number"
+msgstr "Representatives local phone number"
 
 #: lab_ati/proveedor/models.py:16
 msgid "Pais de residencia de representante"
@@ -311,8 +311,8 @@ msgstr "Confirmar"
 #: lab_ati/templates/account/email_confirm.html:27
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 
 #: lab_ati/templates/account/login.html:7
@@ -339,11 +339,11 @@ msgstr "o"
 #: lab_ati/templates/account/login.html:41
 #, python-format
 msgid ""
-"If you have not created an account yet, then please <a "
-"href=\"%(signup_url)s\">sign up</a> first."
+"If you have not created an account yet, then please <a href=\"%(signup_url)s"
+"\">sign up</a> first."
 msgstr ""
-"Si no ha creado una cuenta todavía, créela <a "
-"href=\"%(signup_url)s\">registrándose</a> primero."
+"Si no ha creado una cuenta todavía, créela <a href=\"%(signup_url)s"
+"\">registrándose</a> primero."
 
 #: lab_ati/templates/account/login.html:55
 msgid "Forgot Password?"
@@ -492,24 +492,27 @@ msgstr "Copyright"
 msgid "Todos los derechos reservados"
 msgstr "All rights reserved"
 
-#: lab_ati/templates/common/header.html:13
+#: lab_ati/templates/common/header.html:14
 msgid "Empresas"
 msgstr "Business"
 
-#: lab_ati/templates/common/header.html:16
+#: lab_ati/templates/common/header.html:17
+#: lab_ati/templates/pages/business/list.html:66
 msgid "Clientes"
 msgstr "Customers"
 
-#: lab_ati/templates/common/header.html:19
+#: lab_ati/templates/common/header.html:20
+#: lab_ati/templates/pages/business/list.html:76
 msgid "Proveedores"
 msgstr "Providers"
 
-#: lab_ati/templates/common/header.html:22
+#: lab_ati/templates/common/header.html:23
 #: lab_ati/templates/pages/business/detail.html:39
+#: lab_ati/templates/pages/business/list.html:71
 msgid "Empleados"
 msgstr "Employees"
 
-#: lab_ati/templates/common/header.html:37
+#: lab_ati/templates/common/header.html:39
 msgid "Cambiar"
 msgstr "Change"
 
@@ -539,7 +542,7 @@ msgstr "Update business information"
 
 #: lab_ati/templates/pages/business/create.html:144
 #: lab_ati/templates/pages/proveedor/formAuto.html:40
-#: lab_ati/templates/pages/proveedor/formAuto.html:64
+#: lab_ati/templates/pages/proveedor/formAuto.html:65
 #: lab_ati/templates/pages/proveedor/read.html:49
 #: lab_ati/templates/pages/proveedor/read.html:105
 msgid "Redes sociales"
@@ -769,7 +772,7 @@ msgstr "Provider information"
 msgid "Información del representante"
 msgstr "Representative information"
 
-#: lab_ati/templates/pages/proveedor/formAuto.html:84
+#: lab_ati/templates/pages/proveedor/formAuto.html:85
 msgid "Guardar"
 msgstr "Save"
 
@@ -857,5 +860,5 @@ msgstr "Información actualizada exitosamente"
 #~ msgid "Telefono local"
 #~ msgstr "local number phone"
 
-#~ msgid "My Profile"
-#~ msgstr "Mi perfil"
+#~ msgid "Mi perfil"
+#~ msgstr "My Profile"

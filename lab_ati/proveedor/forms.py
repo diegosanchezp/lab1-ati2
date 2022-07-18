@@ -5,5 +5,4 @@ class ProveedorForm(forms.ModelForm):
   class Meta:
     model = Proveedor
     fields = '__all__'
-    #fields = ['tlf']
  
