@@ -1,3 +1,4 @@
+{% load i18n %}
 {% if data.update == True %}
 <form
   class="container d-grid gap-3 pb-4"
@@ -79,6 +80,6 @@
   
 
   <div class="d-grid gap-2 col-6 mx-auto form-button-box">
-    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-primary" type="submit">{% trans "Guardar" %}</button>
   </div>
 </form>

@@ -3,7 +3,7 @@
 {% block content %}
 <section class="general-container w-100">
   {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link=list_link %}
-  <h2 class="text-center pb-4">{% trans 'Información del proveedor' %} {{proveedor.nombre}}</h2>
+  <h2 class="text-center pb-4">{% trans 'Información del proveedor' %}</h2>
   <div class="container col-10 mx-auto">
     <h5>{% trans 'Proveedor' %}</h5>
     <table class="table">
@@ -37,7 +37,7 @@
           <td>{{proveedor.email}}</td>
         </tr>
         <tr>
-          <td>{% trans 'Página web' %}</td>
+          <td>{% trans 'Pagina web' %}</td>
           <td>{{proveedor.web_site}}</td>
         </tr>
       </tbody>
@@ -73,7 +73,7 @@
           <td>{{proveedor.representante}}</td>
         </tr>
         <tr>
-          <td>{% trans 'Nombre' %}</td>
+          <td>{% trans 'Cargo' %}</td>
           <td>{{proveedor.cargo}}</td>
         </tr>
         <tr>
@@ -93,7 +93,7 @@
           <td>{{proveedor.tlf_local}}</td>
         </tr>
         <tr>
-          <td>{% trans 'Pais de residencia' %}</td>
+          <td>{% trans 'País de residencia' %}</td>
           <td>{{proveedor.pais_representante}}</td>
         </tr>
       </tbody>
