@@ -19,7 +19,7 @@
                     <a>{% trans "Proveedores" %}</a>
                 </li>
                 <li class="px-2 py-1 rounded-bottom custom-header__menu-item">
-                    <a class="link-normal text-black" href="{% url 'empresa:list-employee' business_id=business_id %}">{% trans "Empleados" %}</a>
+                    <a class="link-normal text-black" href="#">{% trans "Empleados" %}</a>
                 </li>
                 <li class="px-2 py-1">
                     <form class="d-flex gap-3" action="{% url 'set_language' %}" method="post">{% csrf_token %}
