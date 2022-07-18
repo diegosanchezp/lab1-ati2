@@ -219,7 +219,7 @@ msgstr "Representatives number phone"
 
 #: lab_ati/proveedor/models.py:15
 msgid "Teléfono local del representante"
-msgstr ""
+msgstr "Representative local phone number"
 
 #: lab_ati/proveedor/models.py:16
 msgid "Pais de residencia de representante"
@@ -633,7 +633,7 @@ msgstr "Actions"
 
 #: lab_ati/templates/pages/clientes/crear.html:7
 msgid "Crea a un cliente con información"
-msgstr ""
+msgstr "Create a client with information"
 
 #: lab_ati/templates/pages/clientes/editar.html:7
 #, fuzzy
@@ -644,7 +644,7 @@ msgstr "Update business information"
 #: lab_ati/templates/pages/clientes/form.html:14
 #: lab_ati/templates/pages/clientes/index.html:20
 msgid "Tipo"
-msgstr ""
+msgstr "Type"
 
 #: lab_ati/templates/pages/clientes/form.html:57
 #: lab_ati/templates/pages/clientes/verCliente.html:30
@@ -655,11 +655,11 @@ msgstr "Social networks"
 
 #: lab_ati/templates/pages/clientes/form.html:71
 msgid "Enviar"
-msgstr ""
+msgstr "Send"
 
 #: lab_ati/templates/pages/clientes/index.html:6
 msgid "Lista de clientes"
-msgstr ""
+msgstr "Client list"
 
 #: lab_ati/templates/pages/clientes/index.html:8
 #, fuzzy
@@ -681,7 +681,7 @@ msgstr "Business information"
 
 #: lab_ati/templates/pages/employees/create.html:10
 msgid "Crea a un empleado con información"
-msgstr ""
+msgstr "Create an employee with information"
 
 #: lab_ati/templates/pages/employees/create.html:12
 msgid "Edita la información de un empleado"
