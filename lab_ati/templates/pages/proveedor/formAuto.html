@@ -19,17 +19,18 @@
     <p class="fw-bold fs-5">{% trans 'Información del proveedor' %}</p>
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
-    {% if campo.label|slice:"-13:" != "representante" %}
+    {% if campo.label|slice:"-13:" != "representante" and campo.label|slice:':15' != 'Representatives'%}
     <section class="row mb-3">
       <section class="col input-group">
-        <label class="input-group-text">{{campo.label}}</label>
+      <label class="input-group-text">{{campo.label}}</label>
+        
         <input
         type="{{campo.field.widget.input_type}}"
         class="form-control"
         name="{{campo.name}}"
         placeholder="{{campo.label}}"
         value="{{data.proveedor|get_item:campo.name}}"
-      />
+        />
       </section>
     </section>
 
@@ -43,7 +44,7 @@
 
     {% for campo in data.formulario %}
     {% if campo.label != 'Empresa' %}
-    {% if campo.label|slice:"-13:" == "representante"%} 
+    {% if campo.label|slice:"-13:" == "representante" or campo.label|slice:':15' == 'Representatives'%} 
     <section class="row mb-3">
       <section class="col input-group">
         <label class="input-group-text">{{campo.label}}</label>
