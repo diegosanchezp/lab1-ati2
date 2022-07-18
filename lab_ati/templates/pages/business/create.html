@@ -3,7 +3,7 @@
 
 {% block content %}
 <section>
-    {% include "../../common/navigation-bar.html" with back_link=request.META.HTTP_REFERER list_link="" %}
+    {% include "../../common/navigation-bar.html" %}
     <h2 class="text-center pb-4">
         {% if object == None %}
             {% trans "Crea una empresa" %}
