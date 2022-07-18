@@ -18,6 +18,7 @@ class BusinessListView(ListView):
     model = Empresa
     paginate_by = 10
 
+
     def get_queryset(self):
         queryset = Empresa.objects.all()
         return queryset
@@ -129,6 +130,7 @@ class EditBusinessView(UpdateView):
             queryset=self.object.redes_sociales.all()
         )
         context["editing_social"] = True
+        context["business_id"] = self.object.id
         return context
 
 
@@ -136,6 +138,10 @@ class BusinessDetailsView(DetailView):
     template_name = "pages/business/detail.html"
     model = Empresa
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["business_id"] = self.object.id
+        return context
 class CreateEmployeeView(CreateView):
     template_name = "pages/employees/create.html"
     model = Empleado
@@ -194,6 +200,7 @@ class CreateEmployeeView(CreateView):
         context = super().get_context_data(**kwargs)
         context['business_id'] = self.kwargs['business_id']
         context["empresa"] = self.get_empresa()
+        context["business_id"] = context["empresa"].id
         # Header
         context["list_link"] = reverse("empresa:list-employee", kwargs={"business_id": context["empresa"].id} )
         context["back_link"] = context["list_link"]
@@ -293,6 +300,9 @@ class DeleteEmployeeView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['business_id'] = self.kwargs['business_id']
+
+        context["list_link"] = reverse("empresa:list-employee", kwargs={"business_id": context["business_id"]} )
+        context["back_link"] = context["list_link"]
         return context
 
     def get_success_url(self):
@@ -305,6 +315,9 @@ class DetailEmployeeView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['business_id'] = self.kwargs['business_id']
+
+        context["list_link"] = reverse("empresa:list-employee", kwargs={"business_id": context["business_id"]} )
+        context["back_link"] = context["list_link"]
         return context
 
 

@@ -89,6 +89,7 @@ def updateProveedor(request):
     )
 
     context = {
+      "business_id": proveedor.empresa.id,
       "data":{
         "proveedor":proveedor,
         "empresa":{"id":proveedor.empresa.id},
@@ -156,6 +157,7 @@ def listProveedor(request):
 
   context["list"] = proveedoresList
   context["empresa"] = {"empresa":empresa, "id":empresaId}
+  context["business_id"] = empresaId
   return render(request,'pages/proveedor/list.html',context)
   
 def deleteProveedor(request):
@@ -186,6 +188,7 @@ def seeProveedor(request):
   )
   context = {
     "proveedor" :proveedor,
+    "business_id": proveedor.empresa.id,
     "socialMedia":socialMediaForm,
     "socialMediaRepresentante":socialMediaRepresentanteForm,
     "list_link":'/proveedor?empresa='+str(proveedor.empresa.id)

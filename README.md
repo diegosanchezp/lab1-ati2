@@ -113,7 +113,7 @@ django-admin compilemessages
 Para obtener los strings nuevos que marcaste como traducibles
 
 ```bash
-django-admin makemessages -l es
+django-admin makemessages -l en
 ```
 
 El último Generara el message file o archivo `.po`

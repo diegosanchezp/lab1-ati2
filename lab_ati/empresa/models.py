@@ -51,7 +51,7 @@ class Empresa(EmpresaABC):
     telefono=models.TextField(_("Teléfono"),
         validators=[validators.RegexValidator(
             regex=tlf_regex,
-            message=_'El campo debe ser un número de teléfono),
+            message=_('El campo debe ser un número de teléfono'),
             code='tlf_invalido'
         )]
     )
