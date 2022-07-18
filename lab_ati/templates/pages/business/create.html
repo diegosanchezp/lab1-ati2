@@ -80,18 +80,36 @@
                     <label class="input-group-text">{{ form.telefono.label_tag }}</label>
                     {{ form.telefono }}
                 </section>
-                {% for error in form.telefono.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
-                {% endfor %}
+                <section class="d-flex flex-column">
+                    <span class="text-info text-xs">
+                        <i class="bi bi-info-circle"></i>
+                        {% trans 'Formatos válidos de número de teléfono: +58-0212-123-1234, +58-0212-123-12-34, +5802121231234' %}
+                    </span>
+                    {% for error in form.telefono.errors %}
+                        <span class="text-danger text-xs">
+                            <i class="bi bi-exclamation-octagon"></i>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </section>
             </section>
             <section class="col">
                 <section class="input-group">
                     <label class="input-group-text">{{ form.whatsapp.label_tag }}</label>
                     {{ form.whatsapp }}
                 </section>
-                {% for error in form.whatsapp.errors %}
-                    <span class="text-danger text-xs mx-2">{{ error }}</span>
-                {% endfor %}
+                <section class="d-flex flex-column">
+                    <span class="text-info text-xs">
+                        <i class="bi bi-info-circle"></i>
+                        {% trans 'Formatos válidos de número de teléfono: +58-0212-123-1234, +58-0212-123-12-34, +5802121231234' %}
+                    </span>
+                    {% for error in form.whatsapp.errors %}
+                        <span class="text-danger text-xs">
+                            <i class="bi bi-exclamation-octagon"></i>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </section>
             </section>
         </section>
 
