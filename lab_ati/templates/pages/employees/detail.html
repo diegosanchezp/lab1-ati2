@@ -8,11 +8,13 @@
     <section class="card">
         <section class="card-body">
             <p class="card-text"> {% trans 'Nombre' %}: {{ object.nombre }} {{ object.apellido }}</p>
-            <p class="card-text">{% trans 'Cedula de identidad o nro de pasaporte' %}: {{ object.ci }} </p>
+            <p class="card-text">{% trans 'Cedula de identidad o número de pasaporte' %}: {{ object.ci }} </p>
             <p class="card-text">{% trans 'Empresa a la que pertenece' %}: {{ object.empresa }} </p>
             <p class="card-text">{% trans 'Cargo' %}: {{ object.cargo }} </p>
+            <p class="card-text">{% trans 'Correo electrónico de la empresa' %}: {{ object.email_emp }} </p>
+            <p class="card-text">{% trans 'Correo personal' %}: {{ object.email_p }} </p>
             <p class="card-text">{% trans 'Teléfono local' %}: {{ object.tlf_local }} </p>
-            <p class="card-text">{% trans 'Empresa a la que pertenece' %}: {{ object.tlf_celular }} </p>
+            <p class="card-text">{% trans 'Teléfono celular' %}: {{ object.tlf_celular }} </p>
             <p class="card-text">{% trans 'País' %}: {{ object.pais }} </p>
             <p class="card-text">{% trans 'Ciudad' %}: {{ object.ciudad }} </p>
             <p class="card-text">{% trans 'Modelo de contratación' %}: {{ object.modalidad_contratacion }} </p>
