@@ -34,11 +34,22 @@
                         {% trans 'Eliminar' %}
                     </button>
                 </a>
+                <a href="{%url "clients" business_id=business_id%}" class="mx-2">
+                    <button class="btn btn-warning">
+                        {% trans 'Clientes' %}
+                    </button>
+                </a>
+                <a href="{% url "listProveedor"%}?empresa={{business_id }}" class="mx-2">
+                    <button class="btn btn-warning">
+                        {% trans 'Proveedores' %}
+                    </button>
+                </a>
                 <a href="{% url 'empresa:list-employee' business_id=object.id %}" class="mx-2">
                     <button class="btn btn-warning">
                         {% trans 'Empleados' %}
                     </button>
                 </a>
+                
             </section>
             
         </section>
