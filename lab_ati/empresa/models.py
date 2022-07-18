@@ -36,20 +36,22 @@ class EmpresaABC(DirABC):
         abstract = True
 
 class Empresa(EmpresaABC):
+    tlf_regex = '^\+?([0-9]{1,3}|[1]\-?[0-9]{3})?\-?([0-9]{1,4})\-?([0-9]{3}\-?[0-9]{2}\-?[0-9]{2})$'
+
     servicio_ofrecido = models.TextField(_("Servicio que le ofrecimos"))
     servicio_proporciona = models.TextField(_("Servicio que proporciona"))
     whatsapp=models.TextField(
         _("Whatsapp"),
         validators=[validators.RegexValidator(
-            regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
-            message=_('El campo debe tener el formato de teléfono, por ejemplo: +58-424 1824687'),
+            regex=tlf_regex,
+            message=_('El campo debe ser un número de teléfono'),
             code='tlf_whatsapp_invalido'
         )]
     )
     telefono=models.TextField(_("Teléfono"),
         validators=[validators.RegexValidator(
-            regex='^(\+[0-9]{1,3})+\-+[0-9]{1,4}\s+[0-9]{7,10}$',
-            message=_('El campo debe tener el formato de teléfono, por ejemplo: +58-424 1824687'),
+            regex=tlf_regex,
+            message=_('El campo debe ser un número de teléfono'),
             code='tlf_invalido'
         )]
     )

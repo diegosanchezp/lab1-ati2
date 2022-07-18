@@ -10,7 +10,8 @@ En la carpeta del repositorio, correr los siguientes comandos
 Descargar las imágenes de docker
 
 ```bash
-docker-compose -f local.yml pull
+docker-compose -f local.yml pull postgres
+DOCKER_BUILDKIT=1 docker-compose -f local.yml build django
 ```
 
 Si estas utilizando Linux poner esto en tu `.bashrc` o `.zhsrc`, se necesita para los permisos de archivos
