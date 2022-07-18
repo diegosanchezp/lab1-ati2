@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-17 23:51+0000\n"
+"POT-Creation-Date: 2022-07-18 00:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,30 +26,30 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: lab_ati/cliente/models.py:8
+#: lab_ati/cliente/models.py:8 lab_ati/templates/pages/clientes/form.html:23
 msgid "Labora empresa"
-msgstr ""
+msgstr "Works company"
 
-#: lab_ati/cliente/models.py:9
+#: lab_ati/cliente/models.py:9 lab_ati/templates/pages/clientes/form.html:26
 msgid "Estudiante"
-msgstr ""
+msgstr "Student"
 
-#: lab_ati/cliente/models.py:10
+#: lab_ati/cliente/models.py:10 lab_ati/templates/pages/clientes/form.html:29
 msgid "Otro"
-msgstr ""
+msgstr "Other"
 
 #: lab_ati/cliente/models.py:14
 msgid "Nombre y Apellido"
-msgstr ""
+msgstr "Full Name"
 
 #: lab_ati/cliente/models.py:18
 msgid "Compañia/Organismo"
-msgstr ""
+msgstr "Company/Organism"
 
 #: lab_ati/cliente/models.py:19 lab_ati/empresa/models.py:96
 #: lab_ati/templates/pages/employees/detail.html:13
 msgid "Cargo"
-msgstr ""
+msgstr "Charge"
 
 #: lab_ati/cliente/models.py:24 lab_ati/empresa/models.py:102
 #: lab_ati/proveedor/models.py:27
@@ -62,16 +62,16 @@ msgstr "Personal Email"
 
 #: lab_ati/cliente/models.py:29 lab_ati/empresa/models.py:113
 msgid "Teléfono celular"
-msgstr "Phone Number"
+msgstr "Cell phone"
 
 #: lab_ati/cliente/models.py:30 lab_ati/empresa/models.py:42
 #: lab_ati/templates/pages/business/detail.html:18
 msgid "Whatsapp"
-msgstr ""
+msgstr "Whatsapp"
 
 #: lab_ati/cliente/models.py:31
 msgid "Servicio ofrecido"
-msgstr ""
+msgstr "Service offered"
 
 #: lab_ati/cliente/models.py:32 lab_ati/empresa/models.py:56
 msgid "Curso de interés"
@@ -79,7 +79,7 @@ msgstr "Course of interest"
 
 #: lab_ati/cliente/models.py:33 lab_ati/empresa/models.py:57
 msgid "Frecuencia con la que desea mantenerse informado"
-msgstr "How often do you want to stay informed"
+msgstr "Frequency with which want to be informed"
 
 #: lab_ati/empresa/models.py:12 lab_ati/templates/pages/business/detail.html:13
 #: lab_ati/templates/pages/employees/detail.html:17
@@ -532,6 +532,7 @@ msgstr "Tax identification number"
 
 #: lab_ati/templates/pages/business/detail.html:12
 #: lab_ati/templates/pages/business/list.html:26
+#: lab_ati/templates/pages/clientes/index.html:21
 #: lab_ati/templates/pages/employees/detail.html:16
 msgid "País"
 msgstr "Country"
@@ -575,9 +576,58 @@ msgid "RIF"
 msgstr "Tax identification number"
 
 #: lab_ati/templates/pages/business/list.html:32
+#: lab_ati/templates/pages/clientes/index.html:22
 #: lab_ati/templates/pages/employees/list.html:33
 msgid "Acciones"
 msgstr "Actions"
+
+#: lab_ati/templates/pages/clientes/crear.html:7
+msgid "Crea a un cliente con información"
+msgstr ""
+
+#: lab_ati/templates/pages/clientes/editar.html:7
+#, fuzzy
+#| msgid "Edita la información de una empresa"
+msgid "Edita la información de un cliente"
+msgstr "Update business information"
+
+#: lab_ati/templates/pages/clientes/form.html:14
+#: lab_ati/templates/pages/clientes/index.html:20
+msgid "Tipo"
+msgstr ""
+
+#: lab_ati/templates/pages/clientes/form.html:57
+#: lab_ati/templates/pages/clientes/verCliente.html:30
+#, fuzzy
+#| msgid "Redes sociales"
+msgid "Redes Sociales"
+msgstr "Social networks"
+
+#: lab_ati/templates/pages/clientes/form.html:71
+msgid "Enviar"
+msgstr ""
+
+#: lab_ati/templates/pages/clientes/index.html:6
+msgid "Lista de clientes"
+msgstr ""
+
+#: lab_ati/templates/pages/clientes/index.html:8
+#, fuzzy
+#| msgid "Gestiona empresas"
+msgid "Gestiona clientes"
+msgstr "Manage businesses"
+
+#: lab_ati/templates/pages/clientes/index.html:19
+#, fuzzy
+#| msgid "Nombre y Apellido"
+msgid "Nombre completo"
+msgstr "Full Name"
+
+#: lab_ati/templates/pages/clientes/verCliente.html:6
+#, fuzzy
+#| msgid "Información de la empresa"
+msgid "Información del cliente"
+msgstr "Business information"
 
 #: lab_ati/templates/pages/employees/create.html:9
 msgid "Crea a un empleado con información"
